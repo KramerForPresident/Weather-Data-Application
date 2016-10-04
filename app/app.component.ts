@@ -7,6 +7,7 @@ import {Entry} from './entry';
 import {EntryDetailComponent} from './entry-detail.component';
 import {EntryService} from './entry.service';
 import {OnInit} from '@angular/core';
+import {FormComponent} from './form.component';
 
 
 @Component({
@@ -61,22 +62,7 @@ import {OnInit} from '@angular/core';
   }
 `],
     template: `
-        <h1>{{title}}</h1>
-        
-        <select>
-            <option>Thunder Bay</option>
-            <option>Toronto</option>
-            <option>Hamilton</option>
-            <option>London</option>
-            <option>Ottawa</option>
-            <option>Barrie</option>
-        </select>
-        <div>
-        <input type="date" name="bday">
-        </div>
-        
-        <div (click)="onSubmit()">Search Weather</div>
-        
+        <my-form></my-form>
         `,
     providers: [EntryService]
 })
@@ -84,16 +70,18 @@ import {OnInit} from '@angular/core';
 
 
 
-export class AppComponent implements OnInit{
+export class AppComponent {
 
-    constructor(private entryService: EntryService){}
+    constructor(private entryService: EntryService) {
+    }
 
     title = "LUNA Weatherbox";
     selectedEntry: Entry;
     entries: Entry[];
 
-    ngOnInit(): void{
-        this.getEntries();
+
+    optionClicked(): void {
+        console.log("The option was clicked");
     }
 
 
