@@ -3,7 +3,11 @@
  */
 "use strict";
 var Entry = (function () {
-    function Entry() {
+    function Entry(id, city, high, low) {
+        this.id = id;
+        this.city = city;
+        this.high = high;
+        this.low = low;
     }
     return Entry;
 }());

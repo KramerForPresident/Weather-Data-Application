@@ -3,8 +3,13 @@
  */
 
 export class Entry{
-    id: number;
-    city: string;
-    temp: number;
+
+    constructor(
+        public id: number,
+        public city: string,
+        public high: number,
+        public low: number
+    ){}
+
 }
 

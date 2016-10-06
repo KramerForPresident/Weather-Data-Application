@@ -14,8 +14,25 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var FormComponent = (function () {
     function FormComponent() {
+        //TODO: get these from a service
         this.cities = ['Thunder Bay', 'Toronto', 'Barrie'];
+        this.submitted = false;
+        this.selectedCity = this.cities[0];
+        this.selectedDate = 2012 - 10 - 09;
     }
+    FormComponent.prototype.changeDate = function (val) {
+        console.log("Date changed");
+        this.selectedDate = val;
+    };
+    FormComponent.prototype.changeCity = function (val) {
+        console.log("City changed");
+        this.selectedCity = val;
+    };
+    FormComponent.prototype.onSubmit = function () {
+        console.log(this.selectedCity);
+        console.log(this.selectedDate);
+        this.submitted = true;
+    };
     FormComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
