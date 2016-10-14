@@ -16,7 +16,7 @@ var entry_service_1 = require('./entry.service');
 var AppComponent = (function () {
     function AppComponent(entryService) {
         this.entryService = entryService;
-        this.title = "LUNA Weatherbox";
+        this.title = "LUNA WEATHERBOX";
     }
     AppComponent.prototype.optionClicked = function () {
         console.log("The option was clicked");
@@ -36,7 +36,7 @@ var AppComponent = (function () {
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
-            template: "\n        <h1>{{title}}</h1>\n        <my-form></my-form>\n        ",
+            template: "\n       <div class = \"banner\">\n            <h1>{{title}}</h1>\n            <img id=\"icon\" src=\"../banner_icon.png\">\n        </div>       \n             \n        <div class = \"container\">\n        <my-form></my-form>\n        </div>        ",
             providers: [entry_service_1.EntryService]
         }), 
         __metadata('design:paramtypes', [entry_service_1.EntryService])

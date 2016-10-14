@@ -13,9 +13,14 @@ import {FormComponent} from './form.component';
 @Component({
     selector: 'my-app',
     template: `
-        <h1>{{title}}</h1>
+       <div class = "banner">
+            <h1>{{title}}</h1>
+            <img id="icon" src="../banner_icon.png">
+        </div>       
+             
+        <div class = "container">
         <my-form></my-form>
-        `,
+        </div>        `,
     providers: [EntryService]
 })
 
@@ -27,7 +32,7 @@ export class AppComponent {
     constructor(private entryService: EntryService) {
     }
 
-    title = "LUNA Weatherbox";
+    title = "LUNA WEATHERBOX";
     selectedEntry: Entry;
     entries: Entry[];
 
