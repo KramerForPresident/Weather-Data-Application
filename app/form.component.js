@@ -18,11 +18,19 @@ var FormComponent = (function () {
         this.cities = ['Thunder Bay', 'Toronto', 'Barrie'];
         this.submitted = false;
         this.selectedCity = this.cities[0];
-        this.selectedDate = 2012 - 10 - 09;
+        this.startDate = "2012-08-30";
+        this.endDate = "2012-08-31";
     }
-    FormComponent.prototype.changeDate = function (val) {
-        console.log("Date changed");
-        this.selectedDate = val;
+    FormComponent.prototype.changeDate = function (sVal, eVal) {
+        var sD = Date.parse(sVal);
+        var eD = Date.parse(eVal);
+        if (sD > eD) {
+            console.log("Not valid");
+        }
+        this.startDate = sVal;
+        this.endDate = eVal;
+        console.log(this.startDate);
+        console.log(this.endDate);
     };
     FormComponent.prototype.changeCity = function (val) {
         console.log("City changed");
@@ -30,7 +38,8 @@ var FormComponent = (function () {
     };
     FormComponent.prototype.onSubmit = function () {
         console.log(this.selectedCity);
-        console.log(this.selectedDate);
+        console.log(this.startDate);
+        console.log(this.endDate);
         this.submitted = true;
     };
     FormComponent = __decorate([

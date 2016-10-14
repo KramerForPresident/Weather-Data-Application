@@ -18,11 +18,26 @@ export class FormComponent{
 
     submitted = false;
     selectedCity = this.cities[0];
-    selectedDate = 2012-10-09;
+    startDate = "2012-08-30";
+    endDate = "2012-08-31";
 
-    changeDate(val){
-        console.log("Date changed");
-        this.selectedDate = val;
+
+
+    changeDate(sVal, eVal){
+        var sD = Date.parse(sVal);
+        var eD = Date.parse(eVal);
+
+
+
+        if(sD > eD){
+            console.log("Not valid");
+        }
+
+        this.startDate = sVal;
+        this.endDate = eVal;
+        console.log(this.startDate);
+        console.log(this.endDate);
+
     }
 
     changeCity(val){
@@ -32,7 +47,8 @@ export class FormComponent{
 
     onSubmit() {
         console.log(this.selectedCity);
-        console.log(this.selectedDate);
+        console.log(this.startDate);
+        console.log(this.endDate);
         this.submitted = true;
     }
 

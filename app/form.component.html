@@ -8,7 +8,9 @@
 
 <div class="form-group">
     <h3>Select Date:</h3>
-    <input type="date" name="d" #dvar (change)="changeDate(dvar.value)">
+    <input type="date" value= {{startDate}} #svar (change)="changeDate(svar.value, evar.value)">
+    <input type="date" value ={{endDate}} name="ed" #evar (change)="changeDate(svar.value, evar.value)">
+
 </div>
 
 <div class = "button">
