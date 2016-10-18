@@ -15,32 +15,63 @@ var core_1 = require('@angular/core');
 var FormComponent = (function () {
     function FormComponent() {
         //TODO: get these from a service
-        this.cities = ['Thunder Bay', 'Toronto', 'Barrie'];
+        this.cities = ['Thunder Bay', 'Toronto', 'Barrie', "Phoenix"];
         this.submitted = false;
         this.selectedCity = this.cities[0];
         this.startDate = "2012-08-30";
         this.endDate = "2012-08-31";
+        this.isValid = true;
     }
-    FormComponent.prototype.changeDate = function (sVal, eVal) {
-        var sD = Date.parse(sVal);
-        var eD = Date.parse(eVal);
-        if (sD > eD) {
-            console.log("Not valid");
+    //bindings don't update upon changing date for some reason
+    //this does technically validate them though
+    FormComponent.prototype.changeStart = function (val) {
+        var sD = Date.parse(val);
+        var eD = Date.parse(this.endDate);
+        if (sD > eD || val == "") {
+            console.log("Not valid\n");
+            this.startDate = this.endDate;
         }
-        this.startDate = sVal;
-        this.endDate = eVal;
-        console.log(this.startDate);
-        console.log(this.endDate);
+        else {
+            console.log("Valid\n");
+            this.startDate = val;
+        }
+        this.showStatus();
+    };
+    FormComponent.prototype.changeEnd = function (val) {
+        var sD = Date.parse(this.startDate);
+        var eD = Date.parse(val);
+        if (sD > eD || val == "") {
+            console.log("Not valid\n");
+            this.endDate = this.startDate;
+        }
+        else {
+            console.log("Valid\n");
+            this.endDate = val;
+        }
+        this.showStatus();
+    };
+    //mostly for debugging
+    FormComponent.prototype.showStatus = function () {
+        //console.log(this.selectedCity);
+        console.log("Start:\t" + this.startDate + "\nEnd:\t" + this.endDate);
     };
     FormComponent.prototype.changeCity = function (val) {
-        console.log("City changed");
         this.selectedCity = val;
     };
     FormComponent.prototype.onSubmit = function () {
-        console.log(this.selectedCity);
-        console.log(this.startDate);
-        console.log(this.endDate);
         this.submitted = true;
+        if (this.isValid == true) {
+            this.getService(this.selectedCity, this.startDate, this.endDate);
+        }
+        else {
+            console.log("Can't submit.");
+        }
+    };
+    FormComponent.prototype.getService = function (city, start, end) {
+        console.log("Sending to service");
+        console.log(city);
+        console.log(start);
+        console.log(end);
     };
     FormComponent = __decorate([
         core_1.Component({

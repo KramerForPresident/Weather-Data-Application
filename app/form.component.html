@@ -8,12 +8,24 @@
 
 <div class="form-group">
     <h3>Select Date:</h3>
-    <input type="date" value= {{startDate}} #svar (change)="changeDate(svar.value, evar.value)">
-    <input type="date" value ={{endDate}} name="ed" #evar (change)="changeDate(svar.value, evar.value)">
+    <input type="date" value= {{startDate}} #svar (change)="changeStart(svar.value)">
+    <input type="date" value ={{endDate}} name="ed" #evar (change)="changeEnd(evar.value)">
 
 </div>
+
+
 
 <div class = "button">
     <button type="submit" class="btn btn-default" (click)="onSubmit()">OKAY</button>
 </div>
+
+
+<div class = "submit-details" [hidden]="!submitted">
+    <h4>You submitted:</h4>
+    {{selectedCity}}<br/>
+    {{startDate}}<br/>
+    {{endDate}}<br/>
+</div>
+
+
 
