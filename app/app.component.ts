@@ -17,10 +17,13 @@ import {FormComponent} from './form.component';
             <h1>{{title}}</h1>
             <img id="icon" src="../banner_icon.png">
         </div>       
+          
              
-        <div class = "container">
-        <my-form></my-form>
-        </div>        `,
+       <div class = "container">
+            <my-form (onSubmitted)="res.getEntries()"></my-form>
+            <results-box #res></results-box>
+        </div>      
+`,
     providers: [EntryService]
 })
 
@@ -52,9 +55,10 @@ export class AppComponent {
         console.log(this.selectedEntry);
     }
 
-    getEntries(): void{
-        this.entryService.getEntries().then(entries => this.entries = entries);
+    printMessage(): void{
+        console.log("gday mate");
     }
+
 
 }
 

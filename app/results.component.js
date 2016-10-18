@@ -1,5 +1,5 @@
 /**
- * Created by pwluft on 2016-09-27.
+ * Created by pwluft on 2016-10-17.
  */
 "use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -12,19 +12,24 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var mock_entries_1 = require('./mock-entries');
-var EntryService = (function () {
-    function EntryService() {
+var entry_service_1 = require('./entry.service');
+var ResultsComponent = (function () {
+    function ResultsComponent(entryService) {
+        this.entryService = entryService;
     }
-    EntryService.prototype.getEntries = function () {
-        console.log("Getting your entries");
-        return Promise.resolve(mock_entries_1.SAMPLES);
+    ResultsComponent.prototype.getEntries = function () {
+        var _this = this;
+        this.entryService.getEntries().then(function (entries) { return _this.entries = entries; });
     };
-    EntryService = __decorate([
-        core_1.Injectable(), 
-        __metadata('design:paramtypes', [])
-    ], EntryService);
-    return EntryService;
+    ResultsComponent = __decorate([
+        core_1.Component({
+            moduleId: module.id,
+            selector: 'results-box',
+            templateUrl: 'results.component.html'
+        }), 
+        __metadata('design:paramtypes', [entry_service_1.EntryService])
+    ], ResultsComponent);
+    return ResultsComponent;
 }());
-exports.EntryService = EntryService;
-//# sourceMappingURL=entry.service.js.map
+exports.ResultsComponent = ResultsComponent;
+//# sourceMappingURL=results.component.js.map

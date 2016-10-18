@@ -3,7 +3,11 @@
  */
 
 import { Component } from '@angular/core';
+import { Output } from '@angular/core';
+import {EventEmitter} from '@angular/core';
 import { Entry} from './entry';
+import {ResultsComponent} from "./results.component"
+import Result = jasmine.Result;
 
 @Component({
     moduleId: module.id,
@@ -22,6 +26,9 @@ export class FormComponent{
     endDate = "2012-08-31";
 
     isValid = true;
+
+    @Output() onSubmitted = new EventEmitter();
+
 
 
     //bindings don't update upon changing date for some reason
@@ -81,11 +88,16 @@ export class FormComponent{
 
 
 
+    //TODO: send this stuff to a service...
     getService(city, start, end){
-        console.log("Sending to service");
-        console.log(city);
-        console.log(start);
-        console.log(end);
+        // console.log("Sending to service");
+        // console.log(city);
+        // console.log(start);
+        // console.log(end);
+
+        this.onSubmitted.emit(null);
+
+
     }
 
 

@@ -12,6 +12,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var core_2 = require('@angular/core');
+var core_3 = require('@angular/core');
 var FormComponent = (function () {
     function FormComponent() {
         //TODO: get these from a service
@@ -21,6 +23,7 @@ var FormComponent = (function () {
         this.startDate = "2012-08-30";
         this.endDate = "2012-08-31";
         this.isValid = true;
+        this.onSubmitted = new core_3.EventEmitter();
     }
     //bindings don't update upon changing date for some reason
     //this does technically validate them though
@@ -67,12 +70,18 @@ var FormComponent = (function () {
             console.log("Can't submit.");
         }
     };
+    //TODO: send this stuff to a service...
     FormComponent.prototype.getService = function (city, start, end) {
-        console.log("Sending to service");
-        console.log(city);
-        console.log(start);
-        console.log(end);
+        // console.log("Sending to service");
+        // console.log(city);
+        // console.log(start);
+        // console.log(end);
+        this.onSubmitted.emit(null);
     };
+    __decorate([
+        core_2.Output(), 
+        __metadata('design:type', Object)
+    ], FormComponent.prototype, "onSubmitted", void 0);
     FormComponent = __decorate([
         core_1.Component({
             moduleId: module.id,

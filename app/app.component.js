@@ -29,14 +29,13 @@ var AppComponent = (function () {
         this.selectedEntry = entry;
         console.log(this.selectedEntry);
     };
-    AppComponent.prototype.getEntries = function () {
-        var _this = this;
-        this.entryService.getEntries().then(function (entries) { return _this.entries = entries; });
+    AppComponent.prototype.printMessage = function () {
+        console.log("gday mate");
     };
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
-            template: "\n       <div class = \"banner\">\n            <h1>{{title}}</h1>\n            <img id=\"icon\" src=\"../banner_icon.png\">\n        </div>       \n             \n        <div class = \"container\">\n        <my-form></my-form>\n        </div>        ",
+            template: "\n       <div class = \"banner\">\n            <h1>{{title}}</h1>\n            <img id=\"icon\" src=\"../banner_icon.png\">\n        </div>       \n          \n             \n       <div class = \"container\">\n            <my-form (onSubmitted)=\"res.getEntries()\"></my-form>\n            <results-box #res></results-box>\n        </div>      \n",
             providers: [entry_service_1.EntryService]
         }), 
         __metadata('design:paramtypes', [entry_service_1.EntryService])

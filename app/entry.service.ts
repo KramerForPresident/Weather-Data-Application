@@ -10,7 +10,9 @@ import {SAMPLES} from './mock-entries';
 
 @Injectable()
 export class EntryService{
-    getEntries(): Promise<Entry[]> {
+    getEntries(): Promise<Entry[]>{
+        console.log("Getting your entries");
         return Promise.resolve(SAMPLES);
     }
+
 }
