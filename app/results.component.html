@@ -1,8 +1,16 @@
 <div class = "results-box">
     <h2>Results Box</h2>
-    Some info will go here
+    <!--<ul>-->
+        <!--<li *ngFor="let val of entries">{{val.city}}</li>-->
+    <!--</ul>-->
 
-    <ul>
-        <li *ngFor="let val of entries">{{val.city}}</li>
-    </ul>
+
+    <table>
+        <tr *ngFor="let val of entries">
+            <td>{{val.city}}</td>
+            <td>{{val.high}}</td>
+            <td>{{val.low}}</td>
+        </tr>
+    </table>
+
 </div>

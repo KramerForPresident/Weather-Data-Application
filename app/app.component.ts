@@ -20,7 +20,7 @@ import {FormComponent} from './form.component';
           
              
        <div class = "container">
-            <my-form (onSubmitted)="res.getEntries()"></my-form>
+            <my-form (onSubmitted)="res.getEntries($event)"></my-form>
             <results-box #res></results-box>
         </div>      
 `,
@@ -55,9 +55,6 @@ export class AppComponent {
         console.log(this.selectedEntry);
     }
 
-    printMessage(): void{
-        console.log("gday mate");
-    }
 
 
 }

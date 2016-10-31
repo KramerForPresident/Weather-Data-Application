@@ -22,8 +22,8 @@ export class FormComponent{
 
     submitted = false;
     selectedCity = this.cities[0];
-    startDate = "2012-08-30";
-    endDate = "2012-08-31";
+    startDate = "2016-08-30";
+    endDate = "2016-08-31";
 
     isValid = true;
 
@@ -45,7 +45,7 @@ export class FormComponent{
             console.log("Valid\n");
             this.startDate = val;
         }
-        this.showStatus();
+      //  this.showStatus();
     }
 
     changeEnd(val){
@@ -60,7 +60,7 @@ export class FormComponent{
             console.log("Valid\n");
             this.endDate = val;
         }
-        this.showStatus();
+        //this.showStatus();
     }
 
     //mostly for debugging
@@ -86,18 +86,9 @@ export class FormComponent{
     }
 
 
-
-
-    //TODO: send this stuff to a service...
     getService(city, start, end){
-        // console.log("Sending to service");
-        // console.log(city);
-        // console.log(start);
-        // console.log(end);
-
-        this.onSubmitted.emit(null);
-
-
+        console.log("Sending to service...");
+        this.onSubmitted.emit({"city": city, "start": start, "end": end});
     }
 
 

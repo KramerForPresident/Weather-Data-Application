@@ -24,8 +24,8 @@ export class ResultsComponent{
     constructor(private entryService: EntryService) {
     }
 
-
-    getEntries(): void{
+    getEntries(input): void{
+        console.log(input.city + "\n" + input.start + "\n" + input.end);
         this.entryService.getEntries().then(entries => this.entries = entries);
     }
 

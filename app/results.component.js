@@ -17,8 +17,9 @@ var ResultsComponent = (function () {
     function ResultsComponent(entryService) {
         this.entryService = entryService;
     }
-    ResultsComponent.prototype.getEntries = function () {
+    ResultsComponent.prototype.getEntries = function (input) {
         var _this = this;
+        console.log(input.city + "\n" + input.start + "\n" + input.end);
         this.entryService.getEntries().then(function (entries) { return _this.entries = entries; });
     };
     ResultsComponent = __decorate([

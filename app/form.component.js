@@ -20,8 +20,8 @@ var FormComponent = (function () {
         this.cities = ['Thunder Bay', 'Toronto', 'Barrie', "Phoenix"];
         this.submitted = false;
         this.selectedCity = this.cities[0];
-        this.startDate = "2012-08-30";
-        this.endDate = "2012-08-31";
+        this.startDate = "2016-08-30";
+        this.endDate = "2016-08-31";
         this.isValid = true;
         this.onSubmitted = new core_3.EventEmitter();
     }
@@ -38,7 +38,7 @@ var FormComponent = (function () {
             console.log("Valid\n");
             this.startDate = val;
         }
-        this.showStatus();
+        //  this.showStatus();
     };
     FormComponent.prototype.changeEnd = function (val) {
         var sD = Date.parse(this.startDate);
@@ -51,7 +51,7 @@ var FormComponent = (function () {
             console.log("Valid\n");
             this.endDate = val;
         }
-        this.showStatus();
+        //this.showStatus();
     };
     //mostly for debugging
     FormComponent.prototype.showStatus = function () {
@@ -70,13 +70,9 @@ var FormComponent = (function () {
             console.log("Can't submit.");
         }
     };
-    //TODO: send this stuff to a service...
     FormComponent.prototype.getService = function (city, start, end) {
-        // console.log("Sending to service");
-        // console.log(city);
-        // console.log(start);
-        // console.log(end);
-        this.onSubmitted.emit(null);
+        console.log("Sending to service...");
+        this.onSubmitted.emit({ "city": city, "start": start, "end": end });
     };
     __decorate([
         core_2.Output(), 
