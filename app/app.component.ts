@@ -12,23 +12,10 @@ import {FormComponent} from './form.component';
 
 @Component({
     selector: 'my-app',
-    template: `
-       <div class = "banner">
-            <h1>{{title}}</h1>
-            <img id="icon" src="../banner_icon.png">
-        </div>       
-          
-             
-       <div class = "container">
-            <my-form (onSubmitted)="res.getEntries($event)"></my-form>
-            <results-box #res></results-box>
-        </div>      
-`,
+    moduleId: module.id,
+    templateUrl: 'app.component.html',
     providers: [EntryService]
 })
-
-
-
 
 export class AppComponent {
 

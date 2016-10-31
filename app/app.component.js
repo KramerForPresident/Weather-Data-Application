@@ -32,7 +32,8 @@ var AppComponent = (function () {
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
-            template: "\n       <div class = \"banner\">\n            <h1>{{title}}</h1>\n            <img id=\"icon\" src=\"../banner_icon.png\">\n        </div>       \n          \n             \n       <div class = \"container\">\n            <my-form (onSubmitted)=\"res.getEntries($event)\"></my-form>\n            <results-box #res></results-box>\n        </div>      \n",
+            moduleId: module.id,
+            templateUrl: 'app.component.html',
             providers: [entry_service_1.EntryService]
         }), 
         __metadata('design:paramtypes', [entry_service_1.EntryService])

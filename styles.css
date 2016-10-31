@@ -1,31 +1,53 @@
 /* Master Styles */
+
+
 h1 {
     color: white;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 300%;
+    font-size: 200%;
 
 }
 h2, h3{
-    font-size: 200%;
+    font-size: 140%;
     color: white;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 100;
 }
-
 
 #icon{
     height: 100px;
     width: 100px;
 }
 
+/*div{*/
+    /*border: 1px solid red;*/
+/*}*/
+
+.left-container{
+    float: left;
+    width: 550px;
+    height: 90%;
+}
+
+.right-container{
+    margin-left: 550px;
+    background-color: #151517;
+    border: 2px solid white;
+    height: 90%;
+}
+
+#result-title{
+    padding: 12px;
+}
+
 
 
 select, input{
-    font-size: 150%;
+    font-size: 130%;
     font-family: Arial, Helvetica, sans-serif;
     color: white;
     border: 1px solid white;
-    width: 300px;
+    width: 240px;
     height: 70px;
     border-radius: 5px;
     padding: 10px;
@@ -49,29 +71,49 @@ select, input{
     padding-right: 5%;
     padding-bottom: 3%;
     padding-top: 3%;
+    height: 100%;
     border-radius: 0px 0px 5px 5px;
 }
 
 button{
-    font-size: 160%;
+    font-size: 110%;
     padding: 20px;
-    width: 20%;
+    width: 140px;
     margin-top: 15px;
     border-radius: 5px;
     border: none;
-    background-color: #2ea571;
     color: white;
     font-weight: bold;
-
 }
 
-.submit-details{
-    font-size: 120%;
-    padding: 20px;
-    color: white;
-
+#okay{
+    background-color: #2ea571;
 }
 
+#comp{
+    background-color: #f66151;
+}
+
+
+
+
+.results-box{
+    height: 100%;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+table{
+    width: 100%;
+    height: 80%;
+    border-collapse: collapse;
+}
+
+td{
+    padding: 10px;
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+}
 
 
 

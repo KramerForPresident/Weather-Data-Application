@@ -1,0 +1,16 @@
+
+<div class = "banner">
+    <h1>{{title}}</h1>
+    <img id="icon" src="../banner_icon.png">
+</div>
+
+<div class = "container">
+
+    <div class = "left-container">
+        <my-form (onSubmitted)="res.getEntries($event)"></my-form>
+    </div>
+
+    <div class="right-container">
+        <results-box #res></results-box>
+    </div>
+</div>

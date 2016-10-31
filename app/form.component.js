@@ -53,6 +53,9 @@ var FormComponent = (function () {
         }
         //this.showStatus();
     };
+    FormComponent.prototype.compClicked = function () {
+        console.log("Compare was clicked");
+    };
     //mostly for debugging
     FormComponent.prototype.showStatus = function () {
         //console.log(this.selectedCity);

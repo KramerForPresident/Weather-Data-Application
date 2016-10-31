@@ -63,6 +63,11 @@ export class FormComponent{
         //this.showStatus();
     }
 
+
+    compClicked(){
+        console.log("Compare was clicked");
+    }
+
     //mostly for debugging
     showStatus(){
         //console.log(this.selectedCity);

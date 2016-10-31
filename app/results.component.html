@@ -1,11 +1,13 @@
-<div class = "results-box">
-    <h2>Results Box</h2>
     <!--<ul>-->
         <!--<li *ngFor="let val of entries">{{val.city}}</li>-->
     <!--</ul>-->
 
 
-    <table>
+<div class = "results-box">
+    <div id="result-title">
+        <h2>Results</h2>
+    </div>
+    <table class = "results-table">
         <tr *ngFor="let val of entries">
             <td>{{val.city}}</td>
             <td>{{val.high}}</td>
