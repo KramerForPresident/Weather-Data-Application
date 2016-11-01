@@ -27,6 +27,9 @@ export class AppComponent {
     entries: Entry[];
 
 
+    isComparison: boolean = true;
+
+
     optionClicked(): void {
         console.log("The option was clicked");
     }
@@ -42,6 +45,10 @@ export class AppComponent {
         console.log(this.selectedEntry);
     }
 
+
+    modeChange(input):void{
+        this.isComparison = input;
+    }
 
 
 }

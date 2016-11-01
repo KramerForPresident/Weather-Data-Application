@@ -11,11 +11,12 @@ import {FormComponent} from './form.component';
 import { AppComponent } from './app.component';
 import {EntryDetailComponent} from "./entry-detail.component";
 import {ResultsComponent} from "./results.component";
+import {ComparisonComponent} from "./comparison.component";
 
 
 @NgModule({
     imports: [BrowserModule, FormsModule],
-    declarations: [AppComponent, EntryDetailComponent, FormComponent, ResultsComponent],
+    declarations: [AppComponent, EntryDetailComponent, FormComponent, ResultsComponent, ComparisonComponent],
     bootstrap: [AppComponent]
 })
 

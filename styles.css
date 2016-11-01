@@ -36,7 +36,7 @@ h2, h3{
     height: 90%;
 }
 
-#result-title{
+.result-title{
     padding: 12px;
 }
 
@@ -97,7 +97,7 @@ button{
 
 
 
-.results-box{
+#results-box, #comparison-box{
     height: 100%;
     width: 100%;
     margin-bottom: 10px;

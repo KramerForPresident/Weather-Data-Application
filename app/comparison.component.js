@@ -1,4 +1,7 @@
 /**
+ * Created by pwluft on 2016-11-01.
+ */
+/**
  * Created by pwluft on 2016-10-17.
  */
 "use strict";
@@ -12,29 +15,22 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var entry_service_1 = require('./entry.service');
-var ResultsComponent = (function () {
-    function ResultsComponent(entryService) {
-        this.entryService = entryService;
+var ComparisonComponent = (function () {
+    function ComparisonComponent() {
     }
-    ResultsComponent.prototype.getEntries = function (input) {
-        var _this = this;
-        console.log(input.city + "\n" + input.start + "\n" + input.end);
-        this.entryService.getEntries().then(function (entries) { return _this.entries = entries; });
-    };
     __decorate([
         core_1.Input(), 
         __metadata('design:type', Boolean)
-    ], ResultsComponent.prototype, "compMode", void 0);
-    ResultsComponent = __decorate([
+    ], ComparisonComponent.prototype, "compMode", void 0);
+    ComparisonComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
-            selector: 'results-box',
-            templateUrl: 'results.component.html'
+            selector: 'comparison-box',
+            templateUrl: 'comparison.component.html'
         }), 
-        __metadata('design:paramtypes', [entry_service_1.EntryService])
-    ], ResultsComponent);
-    return ResultsComponent;
+        __metadata('design:paramtypes', [])
+    ], ComparisonComponent);
+    return ComparisonComponent;
 }());
-exports.ResultsComponent = ResultsComponent;
-//# sourceMappingURL=results.component.js.map
+exports.ComparisonComponent = ComparisonComponent;
+//# sourceMappingURL=comparison.component.js.map

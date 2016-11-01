@@ -18,6 +18,8 @@ import {OnInit} from '@angular/core';
 
 export class ResultsComponent{
 
+    @Input() compMode: boolean;
+
     entries: Entry[];
 
 
@@ -28,6 +30,7 @@ export class ResultsComponent{
         console.log(input.city + "\n" + input.start + "\n" + input.end);
         this.entryService.getEntries().then(entries => this.entries = entries);
     }
+
 
 
 }

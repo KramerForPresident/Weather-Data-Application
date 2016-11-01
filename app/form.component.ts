@@ -25,9 +25,12 @@ export class FormComponent{
     startDate = "2016-08-30";
     endDate = "2016-08-31";
 
+    compMode = false;
+
     isValid = true;
 
     @Output() onSubmitted = new EventEmitter();
+    @Output() onCompClicked = new EventEmitter();
 
 
 
@@ -65,8 +68,29 @@ export class FormComponent{
 
 
     compClicked(){
-        console.log("Compare was clicked");
+        if (this.compMode == false){
+            this.compMode = true;
+        }
+        else{
+            this.compMode = false;
+        }
+        this.onCompClicked.emit(this.compMode);
+        //console.log("Emitting " + this.compMode);
+
     }
+
+
+    submitClicked() {
+        this.submitted = true;
+
+        if (this.isValid == true){
+            this.getService(this.selectedCity, this.startDate, this.endDate);
+        }
+        else{
+            console.log("Can't submit.");
+        }
+    }
+
 
     //mostly for debugging
     showStatus(){
@@ -79,16 +103,6 @@ export class FormComponent{
         this.selectedCity = val;
     }
 
-    onSubmit() {
-        this.submitted = true;
-
-        if (this.isValid == true){
-            this.getService(this.selectedCity, this.startDate, this.endDate);
-        }
-        else{
-            console.log("Can't submit.");
-        }
-    }
 
 
     getService(city, start, end){

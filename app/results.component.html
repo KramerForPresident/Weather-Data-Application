@@ -1,13 +1,11 @@
-    <!--<ul>-->
-        <!--<li *ngFor="let val of entries">{{val.city}}</li>-->
-    <!--</ul>-->
-
-
-<div class = "results-box">
-    <div id="result-title">
+<div id = "results-box">
+    <div class="result-title">
         <h2>Results</h2>
     </div>
-    <table class = "results-table">
+
+    {{compMode}}
+
+    <table id = "results-table">
         <tr *ngFor="let val of entries">
             <td>{{val.city}}</td>
             <td>{{val.high}}</td>
@@ -15,4 +13,6 @@
         </tr>
     </table>
 
+
 </div>
+

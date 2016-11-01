@@ -22,8 +22,10 @@ var FormComponent = (function () {
         this.selectedCity = this.cities[0];
         this.startDate = "2016-08-30";
         this.endDate = "2016-08-31";
+        this.compMode = false;
         this.isValid = true;
         this.onSubmitted = new core_3.EventEmitter();
+        this.onCompClicked = new core_3.EventEmitter();
     }
     //bindings don't update upon changing date for some reason
     //this does technically validate them though
@@ -54,7 +56,23 @@ var FormComponent = (function () {
         //this.showStatus();
     };
     FormComponent.prototype.compClicked = function () {
-        console.log("Compare was clicked");
+        if (this.compMode == false) {
+            this.compMode = true;
+        }
+        else {
+            this.compMode = false;
+        }
+        this.onCompClicked.emit(this.compMode);
+        //console.log("Emitting " + this.compMode);
+    };
+    FormComponent.prototype.submitClicked = function () {
+        this.submitted = true;
+        if (this.isValid == true) {
+            this.getService(this.selectedCity, this.startDate, this.endDate);
+        }
+        else {
+            console.log("Can't submit.");
+        }
     };
     //mostly for debugging
     FormComponent.prototype.showStatus = function () {
@@ -64,15 +82,6 @@ var FormComponent = (function () {
     FormComponent.prototype.changeCity = function (val) {
         this.selectedCity = val;
     };
-    FormComponent.prototype.onSubmit = function () {
-        this.submitted = true;
-        if (this.isValid == true) {
-            this.getService(this.selectedCity, this.startDate, this.endDate);
-        }
-        else {
-            console.log("Can't submit.");
-        }
-    };
     FormComponent.prototype.getService = function (city, start, end) {
         console.log("Sending to service...");
         this.onSubmitted.emit({ "city": city, "start": start, "end": end });
@@ -81,6 +90,10 @@ var FormComponent = (function () {
         core_2.Output(), 
         __metadata('design:type', Object)
     ], FormComponent.prototype, "onSubmitted", void 0);
+    __decorate([
+        core_2.Output(), 
+        __metadata('design:type', Object)
+    ], FormComponent.prototype, "onCompClicked", void 0);
     FormComponent = __decorate([
         core_1.Component({
             moduleId: module.id,

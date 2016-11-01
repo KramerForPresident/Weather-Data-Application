@@ -17,6 +17,7 @@ var AppComponent = (function () {
     function AppComponent(entryService) {
         this.entryService = entryService;
         this.title = "LUNA WEATHERBOX";
+        this.isComparison = true;
     }
     AppComponent.prototype.optionClicked = function () {
         console.log("The option was clicked");
@@ -28,6 +29,9 @@ var AppComponent = (function () {
         console.log("Firing....");
         this.selectedEntry = entry;
         console.log(this.selectedEntry);
+    };
+    AppComponent.prototype.modeChange = function (input) {
+        this.isComparison = input;
     };
     AppComponent = __decorate([
         core_1.Component({

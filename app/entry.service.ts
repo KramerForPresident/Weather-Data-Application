@@ -14,5 +14,4 @@ export class EntryService{
         console.log("Getting your entries");
         return Promise.resolve(SAMPLES);
     }
-
 }

@@ -7,10 +7,14 @@
 <div class = "container">
 
     <div class = "left-container">
-        <my-form (onSubmitted)="res.getEntries($event)"></my-form>
+        <my-form
+                (onSubmitted)="res.getEntries($event)"
+                (onCompClicked)="modeChange($event)"
+        ></my-form>
     </div>
 
     <div class="right-container">
-        <results-box #res></results-box>
+        <results-box #res [compMode]='isComparison'></results-box>
+        <comparison-box #comp [compMode]='isComparison'></comparison-box>
     </div>
 </div>
