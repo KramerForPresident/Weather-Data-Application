@@ -83,12 +83,22 @@ export class FormComponent{
     submitClicked() {
         this.submitted = true;
 
-        if (this.isValid == true){
-            this.getService(this.selectedCity, this.startDate, this.endDate);
+        if(this.compMode != true) {
+            console.log("Submitted in results mode");
+
+            if (this.isValid == true) {
+                this.getService(this.selectedCity, this.startDate, this.endDate);
+            }
+            else {
+                console.log("Can't submit.");
+            }
         }
         else{
-            console.log("Can't submit.");
+            console.log("Submitted in comparison mode");
+            //we are in comparison mode. do something else
+
         }
+
     }
 
 

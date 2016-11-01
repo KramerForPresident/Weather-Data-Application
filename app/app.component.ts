@@ -27,7 +27,7 @@ export class AppComponent {
     entries: Entry[];
 
 
-    isComparison: boolean = true;
+    isComparison: boolean = false;
 
 
     optionClicked(): void {

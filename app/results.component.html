@@ -1,9 +1,7 @@
-<div id = "results-box">
+<div *ngIf="!compMode" id = "results-box">
     <div class="result-title">
         <h2>Results</h2>
     </div>
-
-    {{compMode}}
 
     <table id = "results-table">
         <tr *ngFor="let val of entries">

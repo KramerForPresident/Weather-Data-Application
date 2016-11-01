@@ -22,6 +22,7 @@ import {OnInit} from '@angular/core';
 export class ComparisonComponent{
 
 
+
     @Input() compMode: boolean;
 
 

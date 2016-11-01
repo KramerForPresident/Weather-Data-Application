@@ -20,6 +20,13 @@
 
 </div>
 
+<div *ngIf="compMode" class="form-group">
+    <br/>
+    <input type="date" value= {{startDate}} #svar2 (change)="changeStart(svar2.value)">
+    <input type="date" value ={{endDate}} name="ed" #evar2 (change)="changeEnd(evar2.value)">
+
+</div>
+
 
 
 <div class = "button">
