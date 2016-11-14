@@ -10,9 +10,6 @@
     <button type="submit" id="comp" (click)="compClicked()">COMPARE</button>
 </div>
 
-
-
-
 <div class="form-group">
     <h3>Select Date:</h3>
     <input type="date" value= {{startDate}} #svar (change)="changeStart(svar.value)">
@@ -26,8 +23,6 @@
     <input type="date" value ={{endDate}} name="ed" #evar2 (change)="changeEnd(evar2.value)">
 
 </div>
-
-
 
 <div class = "button">
     <button type="submit" id="okay" (click)="submitClicked()">OKAY</button>

@@ -18,22 +18,14 @@ import {FormComponent} from './form.component';
 })
 
 export class AppComponent {
-
-    constructor(private entryService: EntryService) {
-    }
-
     title = "LUNA WEATHERBOX";
     selectedEntry: Entry;
-    entries: Entry[];
-
-
     isComparison: boolean = false;
 
 
     optionClicked(): void {
         console.log("The option was clicked");
     }
-
 
     onSubmit(): void{
         console.log("Date and City submitted");
@@ -44,7 +36,6 @@ export class AppComponent {
         this.selectedEntry = entry;
         console.log(this.selectedEntry);
     }
-
 
     modeChange(input):void{
         this.isComparison = input;

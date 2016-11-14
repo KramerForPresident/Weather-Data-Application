@@ -14,8 +14,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var entry_service_1 = require('./entry.service');
 var AppComponent = (function () {
-    function AppComponent(entryService) {
-        this.entryService = entryService;
+    function AppComponent() {
         this.title = "LUNA WEATHERBOX";
         this.isComparison = false;
     }
@@ -40,7 +39,7 @@ var AppComponent = (function () {
             templateUrl: 'app.component.html',
             providers: [entry_service_1.EntryService]
         }), 
-        __metadata('design:paramtypes', [entry_service_1.EntryService])
+        __metadata('design:paramtypes', [])
     ], AppComponent);
     return AppComponent;
 }());

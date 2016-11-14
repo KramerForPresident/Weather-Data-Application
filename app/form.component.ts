@@ -17,25 +17,20 @@ import Result = jasmine.Result;
 
 export class FormComponent{
 
-    //TODO: get these from a service
+    //TODO: get these from a service... via polled cities
     cities = ['Thunder Bay', 'Toronto', 'Barrie', "Phoenix"];
 
     submitted = false;
     selectedCity = this.cities[0];
     startDate = "2016-08-30";
     endDate = "2016-08-31";
-
     compMode = false;
-
     isValid = true;
 
     @Output() onSubmitted = new EventEmitter();
     @Output() onCompClicked = new EventEmitter();
 
 
-
-    //bindings don't update upon changing date for some reason
-    //this does technically validate them though
     changeStart(val){
         var sD = Date.parse(val);
         var eD = Date.parse(this.endDate);
@@ -76,9 +71,7 @@ export class FormComponent{
         }
         this.onCompClicked.emit(this.compMode);
         //console.log("Emitting " + this.compMode);
-
     }
-
 
     submitClicked() {
         this.submitted = true;
@@ -95,10 +88,7 @@ export class FormComponent{
         }
         else{
             console.log("Submitted in comparison mode");
-            //we are in comparison mode. do something else
-
         }
-
     }
 
 
@@ -119,6 +109,8 @@ export class FormComponent{
         console.log("Sending to service...");
         this.onSubmitted.emit({"city": city, "start": start, "end": end});
     }
+
+
 
 
 

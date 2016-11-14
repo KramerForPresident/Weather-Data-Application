@@ -12,13 +12,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var mock_entries_1 = require('./mock-entries');
+var entry_1 = require('./entry');
 var EntryService = (function () {
     function EntryService() {
     }
     EntryService.prototype.getEntries = function () {
         console.log("Getting your entries");
-        return Promise.resolve(mock_entries_1.SAMPLES);
+        var samples = [];
+        //TODO: access entries from REST endpoint
+        //service will return data from backend
+        var ind = Math.floor(Math.random() * 10 + 1);
+        for (var i = 1; i <= ind; i++) {
+            samples.push();
+            samples.push(new entry_1.Entry(10 + i, "Welpville", Math.floor(Math.random() * 40 + 1), Math.floor(Math.random() * 40 + 1)));
+        }
+        return Promise.resolve(samples);
     };
     EntryService = __decorate([
         core_1.Injectable(), 

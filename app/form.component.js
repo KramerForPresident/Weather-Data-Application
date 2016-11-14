@@ -16,7 +16,7 @@ var core_2 = require('@angular/core');
 var core_3 = require('@angular/core');
 var FormComponent = (function () {
     function FormComponent() {
-        //TODO: get these from a service
+        //TODO: get these from a service... via polled cities
         this.cities = ['Thunder Bay', 'Toronto', 'Barrie', "Phoenix"];
         this.submitted = false;
         this.selectedCity = this.cities[0];
@@ -27,8 +27,6 @@ var FormComponent = (function () {
         this.onSubmitted = new core_3.EventEmitter();
         this.onCompClicked = new core_3.EventEmitter();
     }
-    //bindings don't update upon changing date for some reason
-    //this does technically validate them though
     FormComponent.prototype.changeStart = function (val) {
         var sD = Date.parse(val);
         var eD = Date.parse(this.endDate);
