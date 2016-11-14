@@ -4,6 +4,12 @@
     </div>
 
     <table id = "results-table">
+        <tr>
+            <th>City</th>
+            <th>High</th>
+            <th>Low</th>
+
+        </tr>
         <tr *ngFor="let val of entries">
             <td>{{val.city}}</td>
             <td>{{val.high}}</td>

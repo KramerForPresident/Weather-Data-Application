@@ -19,8 +19,10 @@ export class EntryService{
         //TODO: access entries from REST endpoint
         //service will return data from backend
 
-        var ind = Math.floor(Math.random()*10 + 1);
+        var ind = Math.floor(Math.random()*20 + 1);
 
+
+        //a temp random object generator
         for(var i = 1; i <= ind; i++){
             samples.push()
             samples.push(
