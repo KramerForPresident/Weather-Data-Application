@@ -21,20 +21,16 @@ import {OnInit} from '@angular/core';
 export class ComparisonComponent{
 
 
+    plots = [];
 
     @Input() compMode: boolean;
 
     constructor(private chartService: ChartService){
-
     }
 
-
-
-
     getChart(input): void{
-
-        var plots;
-        this.chartService.getChartData(input).then((sets) =>  console.log(sets));
+        this.plots = this.chartService.getChartData(input);
+        console.log(this.plots);
     }
 
 

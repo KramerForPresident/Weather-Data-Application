@@ -24,6 +24,9 @@ export class AppComponent {
     isComparison: boolean = false;
 
 
+
+    //hello ehfosDhfosfdb
+
     optionClicked(): void {
         console.log("The option was clicked");
     }
