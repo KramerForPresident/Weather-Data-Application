@@ -22,13 +22,16 @@ export class ResultsComponent{
 
     entries: Entry[];
 
+    isEmpty = true;
+
+
 
     constructor(private entryService: EntryService) {
     }
 
     getEntries(input): void{
-        console.log(input.city + "\n" + input.start + "\n" + input.end);
-        this.entryService.getEntries().then(entries => this.entries = entries);
+        this.entryService.getEntries(input).then(entries => this.entries = entries);
+        this.isEmpty = false;
     }
 
 

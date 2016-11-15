@@ -16,8 +16,9 @@ var entry_1 = require('./entry');
 var EntryService = (function () {
     function EntryService() {
     }
-    EntryService.prototype.getEntries = function () {
+    EntryService.prototype.getEntries = function (data) {
         console.log("Getting your entries");
+        //console.log(data.city + "\n" + data.start + "\n" + data.end);
         var samples = [];
         //TODO: access entries from REST endpoint
         //service will return data from backend
@@ -25,7 +26,7 @@ var EntryService = (function () {
         //a temp random object generator
         for (var i = 1; i <= ind; i++) {
             samples.push();
-            samples.push(new entry_1.Entry(10 + i, "Welpville", Math.floor(Math.random() * 40 + 1), Math.floor(Math.random() * 40 + 1)));
+            samples.push(new entry_1.Entry(10 + i, data.city, Math.floor(Math.random() * 40 + 1), Math.floor(Math.random() * 40 + 1)));
         }
         return Promise.resolve(samples);
     };

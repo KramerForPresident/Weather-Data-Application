@@ -6,9 +6,7 @@
  */
 
 import { Component, Input} from '@angular/core';
-import {Entry} from './entry';
 
-import {EntryService} from './entry.service';
 
 import {OnInit} from '@angular/core';
 

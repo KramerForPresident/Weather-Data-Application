@@ -11,8 +11,10 @@ export class EntryService{
 
 
 
-    getEntries(): Promise<Entry[]>{
+    getEntries(data): Promise<Entry[]>{
         console.log("Getting your entries");
+        //console.log(data.city + "\n" + data.start + "\n" + data.end);
+
 
         var samples = [];
 
@@ -26,7 +28,7 @@ export class EntryService{
         for(var i = 1; i <= ind; i++){
             samples.push()
             samples.push(
-                new Entry(10+i, "Welpville", Math.floor(Math.random()*40 + 1), Math.floor(Math.random()*40 + 1))
+                new Entry(10+i, data.city, Math.floor(Math.random()*40 + 1), Math.floor(Math.random()*40 + 1))
             );
         }
 
