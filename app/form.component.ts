@@ -28,7 +28,10 @@ export class FormComponent{
     isValid = true;
 
     @Output() onSubmitted = new EventEmitter();
+    @Output() onCompared = new EventEmitter();
+
     @Output() onCompClicked = new EventEmitter();
+
 
 
     changeStart(val){
@@ -80,14 +83,14 @@ export class FormComponent{
             console.log("Submitted in results mode");
 
             if (this.isValid == true) {
-                this.getService(this.selectedCity, this.startDate, this.endDate);
+                this.getResults(this.selectedCity, this.startDate, this.endDate);
             }
             else {
                 console.log("Can't submit.");
             }
         }
         else{
-            console.log("Submitted in comparison mode");
+            this.getComparison({val:"WHAT YOURE TELLIN ME"});
         }
     }
 
@@ -104,11 +107,14 @@ export class FormComponent{
     }
 
 
-
-    getService(city, start, end){
-        console.log("Sending to service...");
+    getResults(city, start, end){
         this.onSubmitted.emit({"city": city, "start": start, "end": end});
     }
+
+    getComparison(data){
+        this.onCompared.emit(data)
+    }
+
 
 
 

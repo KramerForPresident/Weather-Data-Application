@@ -25,6 +25,7 @@ var FormComponent = (function () {
         this.compMode = false;
         this.isValid = true;
         this.onSubmitted = new core_3.EventEmitter();
+        this.onCompared = new core_3.EventEmitter();
         this.onCompClicked = new core_3.EventEmitter();
     }
     FormComponent.prototype.changeStart = function (val) {
@@ -68,14 +69,14 @@ var FormComponent = (function () {
         if (this.compMode != true) {
             console.log("Submitted in results mode");
             if (this.isValid == true) {
-                this.getService(this.selectedCity, this.startDate, this.endDate);
+                this.getResults(this.selectedCity, this.startDate, this.endDate);
             }
             else {
                 console.log("Can't submit.");
             }
         }
         else {
-            console.log("Submitted in comparison mode");
+            this.getComparison({ val: "WHAT YOURE TELLIN ME" });
         }
     };
     //mostly for debugging
@@ -86,14 +87,20 @@ var FormComponent = (function () {
     FormComponent.prototype.changeCity = function (val) {
         this.selectedCity = val;
     };
-    FormComponent.prototype.getService = function (city, start, end) {
-        console.log("Sending to service...");
+    FormComponent.prototype.getResults = function (city, start, end) {
         this.onSubmitted.emit({ "city": city, "start": start, "end": end });
+    };
+    FormComponent.prototype.getComparison = function (data) {
+        this.onCompared.emit(data);
     };
     __decorate([
         core_2.Output(), 
         __metadata('design:type', Object)
     ], FormComponent.prototype, "onSubmitted", void 0);
+    __decorate([
+        core_2.Output(), 
+        __metadata('design:type', Object)
+    ], FormComponent.prototype, "onCompared", void 0);
     __decorate([
         core_2.Output(), 
         __metadata('design:type', Object)

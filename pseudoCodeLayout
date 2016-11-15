@@ -1,0 +1,14 @@
+
+//quick pseudocode thing i drew out
+
+for (number of requested date periods, given a single city){
+
+	make entry call with that particular date range and city
+	the REST call returns a the data that fills an entry array
+}
+
+we have a set of entry arrays (2 or 3 probably?)
+return this data back to the chart component
+	
+then the chart itself graphs relevant information from entry array objects
+	

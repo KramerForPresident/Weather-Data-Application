@@ -13,6 +13,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var entry_service_1 = require('./entry.service');
+var chart_service_1 = require("./chart.service");
 var AppComponent = (function () {
     function AppComponent() {
         this.title = "LUNA WEATHERBOX";
@@ -37,7 +38,7 @@ var AppComponent = (function () {
             selector: 'my-app',
             moduleId: module.id,
             templateUrl: 'app.component.html',
-            providers: [entry_service_1.EntryService]
+            providers: [entry_service_1.EntryService, chart_service_1.ChartService]
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);

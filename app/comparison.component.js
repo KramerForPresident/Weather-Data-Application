@@ -15,9 +15,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var chart_service_1 = require('./chart.service');
 var ComparisonComponent = (function () {
-    function ComparisonComponent() {
+    function ComparisonComponent(chartService) {
+        this.chartService = chartService;
     }
+    ComparisonComponent.prototype.getChart = function (input) {
+        var plots;
+        console.log("Well at least we reached here");
+        this.chartService.getChartData(input).then(function (sets) { return plots = sets; });
+        console.log("wow that didn't crash, congrats");
+    };
     __decorate([
         core_1.Input(), 
         __metadata('design:type', Boolean)
@@ -28,7 +36,7 @@ var ComparisonComponent = (function () {
             selector: 'comparison-box',
             templateUrl: 'comparison.component.html'
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [chart_service_1.ChartService])
     ], ComparisonComponent);
     return ComparisonComponent;
 }());

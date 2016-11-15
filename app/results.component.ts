@@ -30,6 +30,7 @@ export class ResultsComponent{
     }
 
     getEntries(input): void{
+
         this.entryService.getEntries(input).then(entries => this.entries = entries);
         this.isEmpty = false;
     }

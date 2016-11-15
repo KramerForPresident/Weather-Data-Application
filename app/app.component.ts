@@ -8,13 +8,14 @@ import {EntryDetailComponent} from './entry-detail.component';
 import {EntryService} from './entry.service';
 import {OnInit} from '@angular/core';
 import {FormComponent} from './form.component';
+import {ChartService} from "./chart.service";
 
 
 @Component({
     selector: 'my-app',
     moduleId: module.id,
     templateUrl: 'app.component.html',
-    providers: [EntryService]
+    providers: [EntryService, ChartService]
 })
 
 export class AppComponent {
