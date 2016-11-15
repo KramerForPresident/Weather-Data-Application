@@ -34,11 +34,7 @@ export class ComparisonComponent{
     getChart(input): void{
 
         var plots;
-
-        console.log("Well at least we reached here");
-
-        this.chartService.getChartData(input).then((sets) => plots = sets);
-        console.log("wow that didn't crash, congrats");
+        this.chartService.getChartData(input).then((sets) =>  console.log(sets));
     }
 
 

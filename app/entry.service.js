@@ -18,12 +18,14 @@ var EntryService = (function () {
     }
     EntryService.prototype.getEntries = function (data) {
         console.log("Getting your entries");
-        //console.log(data.city + "\n" + data.start + "\n" + data.end);
         var samples = [];
-        //TODO: access entries from REST endpoint
+        var city = data.city;
+        var sDate = data.start;
+        var eDate = data.end;
+        //TODO: access entries from REST endpoint. use city, sDate, and eDate as parameters
         //service will return data from backend
+        //a temp random object generator. it'll suffice till we start using an endpoint
         var ind = Math.floor(Math.random() * 20 + 1);
-        //a temp random object generator
         for (var i = 1; i <= ind; i++) {
             samples.push();
             samples.push(new entry_1.Entry(10 + i, data.city, Math.floor(Math.random() * 40 + 1), Math.floor(Math.random() * 40 + 1)));

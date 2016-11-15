@@ -22,9 +22,7 @@ var ComparisonComponent = (function () {
     }
     ComparisonComponent.prototype.getChart = function (input) {
         var plots;
-        console.log("Well at least we reached here");
-        this.chartService.getChartData(input).then(function (sets) { return plots = sets; });
-        console.log("wow that didn't crash, congrats");
+        this.chartService.getChartData(input).then(function (sets) { return console.log(sets); });
     };
     __decorate([
         core_1.Input(), 
