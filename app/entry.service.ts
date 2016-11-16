@@ -12,14 +12,14 @@ export class EntryService{
 
 
     getEntries(data): Promise<Entry[]>{
-//        console.log("Getting your entries");
+    //getEntries(data): any[]{ //as much as i hate to say this, we might have to resort to this....
 
         var samples = [];
         var city = data.city;
         var sDate = data.start;
         var eDate = data.end;
 
-        console.log(city + " " + sDate + " " + eDate);
+        console.log("Sending request for: " + city + " " + sDate + " " + eDate);
 
         //TODO: access entries from REST endpoint. use city, sDate, and eDate as parameters
         //service will return data from backend
@@ -34,5 +34,6 @@ export class EntryService{
         }
 
         return Promise.resolve(samples);
+        //return samples;
     }
 }

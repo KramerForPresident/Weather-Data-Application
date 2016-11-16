@@ -19,11 +19,11 @@ var chart_service_1 = require('./chart.service');
 var ComparisonComponent = (function () {
     function ComparisonComponent(chartService) {
         this.chartService = chartService;
-        this.plots = [];
     }
     ComparisonComponent.prototype.getChart = function (input) {
-        this.plots = this.chartService.getChartData(input);
-        console.log(this.plots);
+        var plots;
+        plots = this.chartService.getChartData(input);
+        console.log(plots);
     };
     __decorate([
         core_1.Input(), 

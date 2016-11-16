@@ -56,7 +56,7 @@ export class FormComponent{
             console.log("Valid\n");
             this.startDate[index] = val;
         }
-        this.showStatus();
+       // this.showStatus();
     }
 
     changeEnd(val, index){
@@ -71,7 +71,7 @@ export class FormComponent{
             console.log("Valid\n");
             this.endDate[index] = val;
         }
-        this.showStatus();
+      //  this.showStatus();
     }
 
 
@@ -128,12 +128,12 @@ export class FormComponent{
 
     //these two functions might be redundant. whatever.
     getResults(data){
-        console.log(data);
+        //console.log(data);
         this.onSubmitted.emit(data);
     }
 
     getComparison(data){
-        console.log(data);
+        //console.log(data);
         this.onCompared.emit(data)
     }
 

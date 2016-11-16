@@ -43,7 +43,7 @@ var FormComponent = (function () {
             console.log("Valid\n");
             this.startDate[index] = val;
         }
-        this.showStatus();
+        // this.showStatus();
     };
     FormComponent.prototype.changeEnd = function (val, index) {
         var sD = Date.parse(this.startDate[index]);
@@ -56,7 +56,7 @@ var FormComponent = (function () {
             console.log("Valid\n");
             this.endDate[index] = val;
         }
-        this.showStatus();
+        //  this.showStatus();
     };
     FormComponent.prototype.compClicked = function () {
         if (this.compMode == false) {
@@ -98,11 +98,11 @@ var FormComponent = (function () {
     };
     //these two functions might be redundant. whatever.
     FormComponent.prototype.getResults = function (data) {
-        console.log(data);
+        //console.log(data);
         this.onSubmitted.emit(data);
     };
     FormComponent.prototype.getComparison = function (data) {
-        console.log(data);
+        //console.log(data);
         this.onCompared.emit(data);
     };
     __decorate([
