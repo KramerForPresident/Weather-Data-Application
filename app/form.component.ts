@@ -20,10 +20,19 @@ export class FormComponent{
     //TODO: get these from a service... via polled cities
     cities = ['Thunder Bay', 'Toronto', 'Barrie', "Phoenix"];
 
+    //okay very bad code starting in 3-2-1 GO
+    startDate = ["2016-08-30", "2012-08-30"];
+    endDate = ["2016-08-31", "2012-08-30"];
+
+
+
+
     submitted = false;
     selectedCity = this.cities[0];
-    startDate = "2016-08-30";
-    endDate = "2016-08-31";
+    //if this works then holy moly
+    //startDate = "2016-08-30";
+    //endDate = "2016-08-31";
+
     compMode = false;
     isValid = true;
 
@@ -34,34 +43,35 @@ export class FormComponent{
 
 
 
-    changeStart(val){
+
+    changeStart(val, index){ //wow what a shitty hack
         var sD = Date.parse(val);
-        var eD = Date.parse(this.endDate);
+        var eD = Date.parse(this.endDate[index]);
 
         if(sD > eD || val == ""){
             console.log("Not valid\n");
-            this.startDate = this.endDate;
+            this.startDate[index] = this.endDate[index];
         }
         else{
             console.log("Valid\n");
-            this.startDate = val;
+            this.startDate[index] = val;
         }
-      //  this.showStatus();
+        this.showStatus();
     }
 
-    changeEnd(val){
-        var sD = Date.parse(this.startDate);
+    changeEnd(val, index){
+        var sD = Date.parse(this.startDate[index]);
         var eD = Date.parse(val);
 
         if(sD > eD || val == ""){
             console.log("Not valid\n");
-            this.endDate = this.startDate;
+            this.endDate[index] = this.startDate[index];
         }
         else{
             console.log("Valid\n");
-            this.endDate = val;
+            this.endDate[index] = val;
         }
-        //this.showStatus();
+        this.showStatus();
     }
 
 
@@ -73,24 +83,29 @@ export class FormComponent{
             this.compMode = false;
         }
         this.onCompClicked.emit(this.compMode);
-        //console.log("Emitting " + this.compMode);
+        console.log("Emitting " + this.compMode);
     }
 
     submitClicked() {
         this.submitted = true;
 
         if(this.compMode != true) {
-            console.log("Submitted in results mode");
-
             if (this.isValid == true) {
-                this.getResults(this.selectedCity, this.startDate, this.endDate);
+                this.getResults({city: this.selectedCity, start: this.startDate[0], end: this.endDate[0]});
             }
             else {
                 console.log("Can't submit.");
             }
         }
         else{
-            this.getComparison({val:"WHAT YOURE TELLIN ME"});
+            var formArray = [];
+
+            for(var i = 0; i < this.startDate.length; i++){
+                formArray.push({city: this.selectedCity, start: this.startDate[i], end: this.endDate[i]});
+            }
+            this.getComparison(formArray);
+
+
         }
     }
 
@@ -98,7 +113,10 @@ export class FormComponent{
     //mostly for debugging
     showStatus(){
         //console.log(this.selectedCity);
-        console.log("Start:\t" + this.startDate + "\nEnd:\t" + this.endDate);
+
+        for (var i = 0; i < this.startDate.length; i++){
+            console.log("Start[" + i + "]: " + this.startDate[i] + " End[" + i + "]: " + this.endDate[i] + "\n");
+        }
     }
 
 
@@ -107,11 +125,15 @@ export class FormComponent{
     }
 
 
-    getResults(city, start, end){
-        this.onSubmitted.emit({"city": city, "start": start, "end": end});
+
+    //these two functions might be redundant. whatever.
+    getResults(data){
+        console.log(data);
+        this.onSubmitted.emit(data);
     }
 
     getComparison(data){
+        console.log(data);
         this.onCompared.emit(data)
     }
 

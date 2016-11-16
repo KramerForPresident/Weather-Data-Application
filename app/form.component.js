@@ -18,41 +18,45 @@ var FormComponent = (function () {
     function FormComponent() {
         //TODO: get these from a service... via polled cities
         this.cities = ['Thunder Bay', 'Toronto', 'Barrie', "Phoenix"];
+        //okay very bad code starting in 3-2-1 GO
+        this.startDate = ["2016-08-30", "2012-08-30"];
+        this.endDate = ["2016-08-31", "2012-08-30"];
         this.submitted = false;
         this.selectedCity = this.cities[0];
-        this.startDate = "2016-08-30";
-        this.endDate = "2016-08-31";
+        //if this works then holy moly
+        //startDate = "2016-08-30";
+        //endDate = "2016-08-31";
         this.compMode = false;
         this.isValid = true;
         this.onSubmitted = new core_3.EventEmitter();
         this.onCompared = new core_3.EventEmitter();
         this.onCompClicked = new core_3.EventEmitter();
     }
-    FormComponent.prototype.changeStart = function (val) {
+    FormComponent.prototype.changeStart = function (val, index) {
         var sD = Date.parse(val);
-        var eD = Date.parse(this.endDate);
+        var eD = Date.parse(this.endDate[index]);
         if (sD > eD || val == "") {
             console.log("Not valid\n");
-            this.startDate = this.endDate;
+            this.startDate[index] = this.endDate[index];
         }
         else {
             console.log("Valid\n");
-            this.startDate = val;
+            this.startDate[index] = val;
         }
-        //  this.showStatus();
+        this.showStatus();
     };
-    FormComponent.prototype.changeEnd = function (val) {
-        var sD = Date.parse(this.startDate);
+    FormComponent.prototype.changeEnd = function (val, index) {
+        var sD = Date.parse(this.startDate[index]);
         var eD = Date.parse(val);
         if (sD > eD || val == "") {
             console.log("Not valid\n");
-            this.endDate = this.startDate;
+            this.endDate[index] = this.startDate[index];
         }
         else {
             console.log("Valid\n");
-            this.endDate = val;
+            this.endDate[index] = val;
         }
-        //this.showStatus();
+        this.showStatus();
     };
     FormComponent.prototype.compClicked = function () {
         if (this.compMode == false) {
@@ -62,35 +66,43 @@ var FormComponent = (function () {
             this.compMode = false;
         }
         this.onCompClicked.emit(this.compMode);
-        //console.log("Emitting " + this.compMode);
+        console.log("Emitting " + this.compMode);
     };
     FormComponent.prototype.submitClicked = function () {
         this.submitted = true;
         if (this.compMode != true) {
-            console.log("Submitted in results mode");
             if (this.isValid == true) {
-                this.getResults(this.selectedCity, this.startDate, this.endDate);
+                this.getResults({ city: this.selectedCity, start: this.startDate[0], end: this.endDate[0] });
             }
             else {
                 console.log("Can't submit.");
             }
         }
         else {
-            this.getComparison({ val: "WHAT YOURE TELLIN ME" });
+            var formArray = [];
+            for (var i = 0; i < this.startDate.length; i++) {
+                formArray.push({ city: this.selectedCity, start: this.startDate[i], end: this.endDate[i] });
+            }
+            this.getComparison(formArray);
         }
     };
     //mostly for debugging
     FormComponent.prototype.showStatus = function () {
         //console.log(this.selectedCity);
-        console.log("Start:\t" + this.startDate + "\nEnd:\t" + this.endDate);
+        for (var i = 0; i < this.startDate.length; i++) {
+            console.log("Start[" + i + "]: " + this.startDate[i] + " End[" + i + "]: " + this.endDate[i] + "\n");
+        }
     };
     FormComponent.prototype.changeCity = function (val) {
         this.selectedCity = val;
     };
-    FormComponent.prototype.getResults = function (city, start, end) {
-        this.onSubmitted.emit({ "city": city, "start": start, "end": end });
+    //these two functions might be redundant. whatever.
+    FormComponent.prototype.getResults = function (data) {
+        console.log(data);
+        this.onSubmitted.emit(data);
     };
     FormComponent.prototype.getComparison = function (data) {
+        console.log(data);
         this.onCompared.emit(data);
     };
     __decorate([

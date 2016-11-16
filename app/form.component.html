@@ -12,29 +12,20 @@
 
 <div class="form-group">
     <h3>Select Date:</h3>
-    <input type="date" value= {{startDate}} #svar (change)="changeStart(svar.value)">
-    <input type="date" value ={{endDate}} name="ed" #evar (change)="changeEnd(evar.value)">
+    <input type="date" value= {{startDate[0]}} #svar (change)="changeStart(svar.value, 0)">
+    <input type="date" value ={{endDate[0]}} name="ed" #evar (change)="changeEnd(evar.value, 0)">
 
 </div>
 
 <div *ngIf="compMode" class="form-group">
     <br/>
-    <input type="date" value= {{startDate}} #svar2 (change)="changeStart(svar2.value)">
-    <input type="date" value ={{endDate}} name="ed" #evar2 (change)="changeEnd(evar2.value)">
-
+    <input type="date" value= {{startDate[1]}} #svar2 (change)="changeStart(svar2.value, 1)">
+    <input type="date" value ={{endDate[1]}} name="ed" #evar2 (change)="changeEnd(evar2.value, 1)">
 </div>
 
 <div class = "button">
     <button type="submit" id="okay" (click)="submitClicked()">OKAY</button>
 </div>
-
-
-<!--<div class = "submit-details" [hidden]="!submitted">-->
-    <!--<h4>You submitted:</h4>-->
-    <!--{{selectedCity}}<br/>-->
-    <!--{{startDate}}<br/>-->
-    <!--{{endDate}}<br/>-->
-<!--</div>-->
 
 
 
