@@ -44,7 +44,7 @@ export class FormComponent{
 
 
 
-    changeStart(val, index){ //wow what a shitty hack
+    changeStart(val, index){
         var sD = Date.parse(val);
         var eD = Date.parse(this.endDate[index]);
 
@@ -83,7 +83,7 @@ export class FormComponent{
             this.compMode = false;
         }
         this.onCompClicked.emit(this.compMode);
-        console.log("Emitting " + this.compMode);
+        //console.log("Emitting " + this.compMode);
     }
 
     submitClicked() {

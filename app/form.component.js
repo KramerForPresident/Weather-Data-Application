@@ -66,7 +66,7 @@ var FormComponent = (function () {
             this.compMode = false;
         }
         this.onCompClicked.emit(this.compMode);
-        console.log("Emitting " + this.compMode);
+        //console.log("Emitting " + this.compMode);
     };
     FormComponent.prototype.submitClicked = function () {
         this.submitted = true;

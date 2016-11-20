@@ -19,7 +19,6 @@ var AppComponent = (function () {
         this.title = "LUNA WEATHERBOX";
         this.isComparison = false;
     }
-    //hello ehfosDhfosfdb
     AppComponent.prototype.optionClicked = function () {
         console.log("The option was clicked");
     };

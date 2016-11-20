@@ -24,9 +24,6 @@ export class AppComponent {
     isComparison: boolean = false;
 
 
-
-    //hello ehfosDhfosfdb
-
     optionClicked(): void {
         console.log("The option was clicked");
     }
@@ -40,6 +37,7 @@ export class AppComponent {
         this.selectedEntry = entry;
         console.log(this.selectedEntry);
     }
+
 
     modeChange(input):void{
         this.isComparison = input;
