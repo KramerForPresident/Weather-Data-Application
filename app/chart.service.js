@@ -21,8 +21,6 @@ var ChartService = (function () {
         //data should be an array[] of request data
         var plots = [];
         for (var i = 0; i < data.length; i++) {
-            //for each requested date range, request an array of entries for it
-            this.entryService.getEntries(data[i]).then(function (entries) { return plots.push(entries); });
         }
         //so now, plots[] should be an array of entries[] arrays.
         return plots;

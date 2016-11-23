@@ -20,7 +20,10 @@ export class ResultsComponent{
 
     @Input() compMode: boolean;
 
-    entries: Entry[];
+    errorMessage: string;
+    entries: any;
+
+    a = {};
 
     isEmpty = true;
 
@@ -31,8 +34,15 @@ export class ResultsComponent{
 
     getEntries(input): void{
 
-        this.entryService.getEntries(input).then(entries => this.entries = entries);
+        this.entryService.getEntries(input).then(dt => this.dataReceived(dt));
+
         this.isEmpty = false;
+    }
+
+
+    private dataReceived(dt){
+        console.log("Received the data and got us some dollars");
+        console.log(dt);
     }
 
 

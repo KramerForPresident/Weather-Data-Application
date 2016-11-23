@@ -16,12 +16,17 @@ var entry_service_1 = require('./entry.service');
 var ResultsComponent = (function () {
     function ResultsComponent(entryService) {
         this.entryService = entryService;
+        this.a = {};
         this.isEmpty = true;
     }
     ResultsComponent.prototype.getEntries = function (input) {
         var _this = this;
-        this.entryService.getEntries(input).then(function (entries) { return _this.entries = entries; });
+        this.entryService.getEntries(input).then(function (dt) { return _this.dataReceived(dt); });
         this.isEmpty = false;
+    };
+    ResultsComponent.prototype.dataReceived = function (dt) {
+        console.log("Received the data and got us some dollars");
+        console.log(dt);
     };
     __decorate([
         core_1.Input(), 

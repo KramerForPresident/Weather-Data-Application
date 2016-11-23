@@ -22,7 +22,7 @@ export class ChartService{
 
         for(var i = 0; i < data.length; i++){
             //for each requested date range, request an array of entries for it
-            this.entryService.getEntries(data[i]).then(entries => plots.push(entries));
+         //   this.entryService.getEntries(data[i]).then(entries => plots.push(entries));
             // plots.push(this.entryService.getEntries(data[i]));
         }
 
