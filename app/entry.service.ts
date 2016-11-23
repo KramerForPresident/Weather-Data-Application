@@ -6,9 +6,20 @@ import { Injectable } from '@angular/core';
 
 import {Entry} from './entry';
 
+import {Http, Response} from '@angular/http';
+
+import { Observable }     from 'rxjs/Observable';
+
+import 'rxjs/add/operator/map';
+
+
 @Injectable()
 export class EntryService{
 
+
+    private url = 'http://sample-env-1.ds75epucp6.us-east-1.elasticbeanstalk.com/weatherfile/getTest';
+
+    constructor(private http: Http ){}
 
 
     getEntries(data): Promise<Entry[]>{
@@ -19,10 +30,30 @@ export class EntryService{
         var sDate = data.start;
         var eDate = data.end;
 
-        console.log("Sending request for: " + city + " " + sDate + " " + eDate);
+
+
+
+        //console.log("Sending request for: " + city + " " + sDate + " " + eDate);
 
         //TODO: access entries from REST endpoint. use city, sDate, and eDate as parameters
-        //service will return data from backend
+
+
+        var returnedData = this.http.get(this.url).map(this.extractData);
+
+        console.log(returnedData);
+        console.log(this.url);
+
+
+
+
+
+
+
+
+
+
+
+
 
         //a temp random object generator. it'll suffice till we start using an endpoint
         var ind = Math.floor(Math.random()*20 + 1);
@@ -36,4 +67,12 @@ export class EntryService{
         return Promise.resolve(samples);
         //return samples;
     }
+
+
+    extractData(res: Response){
+        console.log("extracting data.....");
+        let body = res.json();
+        return body.data || {};
+    }
+
 }

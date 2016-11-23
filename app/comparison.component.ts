@@ -5,13 +5,13 @@
  * Created by pwluft on 2016-10-17.
  */
 
-import { Component, Input} from '@angular/core';
+import { Component, Input, OnInit} from '@angular/core';
 
 import {ChartService} from './chart.service';
 
 
-import {GoogleChartComponent} from './chart.component';
 
+declare var google:any;
 
 
 
@@ -21,17 +21,43 @@ import {GoogleChartComponent} from './chart.component';
     templateUrl: 'comparison.component.html'
 })
 
-export class ComparisonComponent extends GoogleChartComponent{
+export class ComparisonComponent implements OnInit{
 
     private options;
     private data;
     private chart;
+    private static googleLoaded:any;
+
+    @Input() compMode: boolean;
 
 
-    drawGraph(){
+    constructor(private chartService: ChartService){}
 
-        console.log("graph loaded, drawing....");
 
+    getGoogle() {
+        return google;
+    }
+    ngOnInit() {
+        console.log('ngOnInit');
+        if(!ComparisonComponent.googleLoaded) {
+            ComparisonComponent.googleLoaded = true;
+            google.charts.load('current',  {packages: ['corechart', 'bar']});
+        }
+        google.charts.setOnLoadCallback(() => this.loadGraph());
+    }
+
+
+    createBarChart(element:any):any {
+        return new google.visualization.BarChart(element);
+    }
+
+    createDataTable(array:any[]):any {
+        return google.visualization.arrayToDataTable(array);
+    }
+
+    loadGraph(){
+
+        console.log("loading graph data...");
         this.data = this.createDataTable([
             ['City', 'High', 'Low'],
             ['A', 88, 27],
@@ -51,26 +77,22 @@ export class ComparisonComponent extends GoogleChartComponent{
                 title: 'City'
             }
         };
-        //
-
 
     }
 
-    @Input() compMode: boolean;
-
 
     getChart(input): void{
-        //var plots;
+        var plots;
 
-       // plots = this.chartService.getChartData(input);
+        plots = this.chartService.getChartData(input);
 
+        console.log(plots);
 
-        this.chart = this.createBarChart(document.getElementById('chart'));
+        console.log("changing data, drawing chart");
+
+        this.chart = this.createBarChart(document.getElementById('my-chart'));
+
         this.chart.draw(this.data, this.options);
-
-
-
-
 
     }
 

@@ -5,6 +5,7 @@
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {FormsModule} from '@angular/forms';
+import {HttpModule, JsonpModule} from '@angular/http';
 
 
 import {FormComponent} from './form.component';
@@ -15,7 +16,7 @@ import {ComparisonComponent} from "./comparison.component";
 
 
 @NgModule({
-    imports: [BrowserModule, FormsModule],
+    imports: [BrowserModule, FormsModule, HttpModule, JsonpModule],
     declarations: [AppComponent, EntryDetailComponent, FormComponent, ResultsComponent, ComparisonComponent],
     bootstrap: [AppComponent]
 })

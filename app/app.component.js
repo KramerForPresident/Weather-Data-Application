@@ -14,6 +14,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var entry_service_1 = require('./entry.service');
 var chart_service_1 = require("./chart.service");
+require('rxjs/add/operator/map');
 var AppComponent = (function () {
     function AppComponent() {
         this.title = "LUNA WEATHERBOX";

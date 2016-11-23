@@ -13,8 +13,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var entry_1 = require('./entry');
+var http_1 = require('@angular/http');
+require('rxjs/add/operator/map');
 var EntryService = (function () {
-    function EntryService() {
+    function EntryService(http) {
+        this.http = http;
+        this.url = 'http://sample-env-1.ds75epucp6.us-east-1.elasticbeanstalk.com/weatherfile/getTest';
     }
     EntryService.prototype.getEntries = function (data) {
         //getEntries(data): any[]{ //as much as i hate to say this, we might have to resort to this....
@@ -22,9 +26,11 @@ var EntryService = (function () {
         var city = data.city;
         var sDate = data.start;
         var eDate = data.end;
-        console.log("Sending request for: " + city + " " + sDate + " " + eDate);
+        //console.log("Sending request for: " + city + " " + sDate + " " + eDate);
         //TODO: access entries from REST endpoint. use city, sDate, and eDate as parameters
-        //service will return data from backend
+        var returnedData = this.http.get(this.url).map(this.extractData);
+        console.log(returnedData);
+        console.log(this.url);
         //a temp random object generator. it'll suffice till we start using an endpoint
         var ind = Math.floor(Math.random() * 20 + 1);
         for (var i = 1; i <= ind; i++) {
@@ -34,9 +40,14 @@ var EntryService = (function () {
         return Promise.resolve(samples);
         //return samples;
     };
+    EntryService.prototype.extractData = function (res) {
+        console.log("extracting data.....");
+        var body = res.json();
+        return body.data || {};
+    };
     EntryService = __decorate([
         core_1.Injectable(), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [http_1.Http])
     ], EntryService);
     return EntryService;
 }());

@@ -26,7 +26,7 @@ export class ResultsComponent{
 
 
 
-    constructor(private entryService: EntryService) {
+    constructor(private entryService: EntryService){
     }
 
     getEntries(input): void{

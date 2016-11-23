@@ -5,11 +5,6 @@
  * Created by pwluft on 2016-10-17.
  */
 "use strict";
-var __extends = (this && this.__extends) || function (d, b) {
-    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-    function __() { this.constructor = d; }
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-};
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -20,14 +15,31 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var chart_component_1 = require('./chart.component');
-var ComparisonComponent = (function (_super) {
-    __extends(ComparisonComponent, _super);
-    function ComparisonComponent() {
-        _super.apply(this, arguments);
+var chart_service_1 = require('./chart.service');
+var ComparisonComponent = (function () {
+    function ComparisonComponent(chartService) {
+        this.chartService = chartService;
     }
-    ComparisonComponent.prototype.drawGraph = function () {
-        console.log("graph loaded, drawing....");
+    ComparisonComponent.prototype.getGoogle = function () {
+        return google;
+    };
+    ComparisonComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        console.log('ngOnInit');
+        if (!ComparisonComponent.googleLoaded) {
+            ComparisonComponent.googleLoaded = true;
+            google.charts.load('current', { packages: ['corechart', 'bar'] });
+        }
+        google.charts.setOnLoadCallback(function () { return _this.loadGraph(); });
+    };
+    ComparisonComponent.prototype.createBarChart = function (element) {
+        return new google.visualization.BarChart(element);
+    };
+    ComparisonComponent.prototype.createDataTable = function (array) {
+        return google.visualization.arrayToDataTable(array);
+    };
+    ComparisonComponent.prototype.loadGraph = function () {
+        console.log("loading graph data...");
         this.data = this.createDataTable([
             ['City', 'High', 'Low'],
             ['A', 88, 27],
@@ -44,12 +56,13 @@ var ComparisonComponent = (function (_super) {
                 title: 'City'
             }
         };
-        //
     };
     ComparisonComponent.prototype.getChart = function (input) {
-        //var plots;
-        // plots = this.chartService.getChartData(input);
-        this.chart = this.createBarChart(document.getElementById('chart'));
+        var plots;
+        plots = this.chartService.getChartData(input);
+        console.log(plots);
+        console.log("changing data, drawing chart");
+        this.chart = this.createBarChart(document.getElementById('my-chart'));
         this.chart.draw(this.data, this.options);
     };
     __decorate([
@@ -62,9 +75,9 @@ var ComparisonComponent = (function (_super) {
             selector: 'comparison-box',
             templateUrl: 'comparison.component.html'
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [chart_service_1.ChartService])
     ], ComparisonComponent);
     return ComparisonComponent;
-}(chart_component_1.GoogleChartComponent));
+}());
 exports.ComparisonComponent = ComparisonComponent;
 //# sourceMappingURL=comparison.component.js.map

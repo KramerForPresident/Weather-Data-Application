@@ -10,6 +10,9 @@ import {OnInit} from '@angular/core';
 import {FormComponent} from './form.component';
 import {ChartService} from "./chart.service";
 
+import 'rxjs/add/operator/map';
+
+
 
 @Component({
     selector: 'my-app',
