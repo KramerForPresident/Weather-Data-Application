@@ -12,7 +12,9 @@
         <my-form
                 (onSubmitted)="res.getEntries($event)"
                 (onCompared)="comp.getChart($event)"
-                (onCompClicked)="modeChange($event)">
+                (onCompClicked)="modeChange($event)"
+                (onCityChange)="res.changeCity($event)">
+
         </my-form>
     </div>
 

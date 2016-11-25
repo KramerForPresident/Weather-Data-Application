@@ -30,6 +30,7 @@ var FormComponent = (function () {
         this.isValid = true;
         this.onSubmitted = new core_3.EventEmitter();
         this.onCompared = new core_3.EventEmitter();
+        this.onCityChange = new core_3.EventEmitter();
         this.onCompClicked = new core_3.EventEmitter();
     }
     FormComponent.prototype.changeStart = function (val, index) {
@@ -95,6 +96,7 @@ var FormComponent = (function () {
     };
     FormComponent.prototype.changeCity = function (val) {
         this.selectedCity = val;
+        this.onCityChange.emit(this.selectedCity);
     };
     //these two functions might be redundant. whatever.
     FormComponent.prototype.getResults = function (data) {
@@ -113,6 +115,10 @@ var FormComponent = (function () {
         core_2.Output(), 
         __metadata('design:type', Object)
     ], FormComponent.prototype, "onCompared", void 0);
+    __decorate([
+        core_2.Output(), 
+        __metadata('design:type', Object)
+    ], FormComponent.prototype, "onCityChange", void 0);
     __decorate([
         core_2.Output(), 
         __metadata('design:type', Object)

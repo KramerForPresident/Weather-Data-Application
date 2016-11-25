@@ -38,6 +38,10 @@ export class ResultsComponent{
     }
 
 
+    changeCity(input){
+        this.currentCity = input;
+    }
+
     private dataReceived(input){
         this.entries = input;
 

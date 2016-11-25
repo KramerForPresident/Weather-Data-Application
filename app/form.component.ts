@@ -37,6 +37,7 @@ export class FormComponent{
 
     @Output() onSubmitted = new EventEmitter();
     @Output() onCompared = new EventEmitter();
+    @Output() onCityChange = new EventEmitter();
 
     @Output() onCompClicked = new EventEmitter();
 
@@ -121,6 +122,7 @@ export class FormComponent{
 
     changeCity(val){
         this.selectedCity = val;
+        this.onCityChange.emit(this.selectedCity);
     }
 
 

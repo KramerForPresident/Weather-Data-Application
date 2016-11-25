@@ -25,6 +25,9 @@ var ResultsComponent = (function () {
         this.entryService.getEntries(input).then(function (dt) { return _this.dataReceived(dt); });
         this.isEmpty = false;
     };
+    ResultsComponent.prototype.changeCity = function (input) {
+        this.currentCity = input;
+    };
     ResultsComponent.prototype.dataReceived = function (input) {
         this.entries = input;
         for (var i = 0; i < this.entries.length; i++) {
