@@ -19,29 +19,25 @@ require('rxjs/add/operator/catch');
 var EntryService = (function () {
     function EntryService(http) {
         this.http = http;
-        this.url = 'http://sample-env-1.ds75epucp6.us-east-1.elasticbeanstalk.com/weatherfile/getTest';
+        this.baseUrl = "http://sample-env-1.ds75epucp6.us-east-1.elasticbeanstalk.com/Weatherfile/";
     }
     EntryService.prototype.getEntries = function (data) {
-        var samples = [];
-        var city = data.city;
         var sDate = data.start;
         var eDate = data.end;
+        var url;
         //console.log("Sending request for: " + city + " " + sDate + " " + eDate);
-        //
-        return this.http.get(this.url)
+        if (sDate == eDate) {
+            console.log("theyre literally the same");
+            url = this.baseUrl + "getByDate?date=" + sDate;
+        }
+        else {
+            url = this.baseUrl + "getBetween?date1=" + sDate + "&date2=" + eDate;
+        }
+        console.log(url);
+        return this.http.get(url)
             .toPromise()
             .then(function (response) { return response.json(); })
             .catch(this.handleError);
-        //a temp random object generator. it'll suffice till we start using an endpoint
-        // var ind = Math.floor(Math.random()*20 + 1);
-        // for(var i = 1; i <= ind; i++){
-        //     samples.push()
-        //     samples.push(
-        //         new Entry(10+i, city, Math.floor(Math.random()*40 + 1), Math.floor(Math.random()*40 + 1))
-        //     );
-        // }
-        //return Promise.resolve(samples);
-        //return samples;
     };
     EntryService.prototype.handleError = function (error) {
         console.error('An error occurred', error); // for demo purposes only

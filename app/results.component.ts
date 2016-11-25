@@ -19,13 +19,11 @@ import {OnInit} from '@angular/core';
 export class ResultsComponent{
 
     @Input() compMode: boolean;
-
-    errorMessage: string;
     entries: any;
-
     a = {};
-
     isEmpty = true;
+
+    currentCity = "Thunder Bay";
 
 
 
@@ -40,9 +38,14 @@ export class ResultsComponent{
     }
 
 
-    private dataReceived(dt){
-        console.log("Received the data and got us some dollars");
-        console.log(dt);
+    private dataReceived(input){
+        this.entries = input;
+
+
+        for(var i = 0; i < this.entries.length; i ++){
+            console.log(this.entries[i]);
+        }
+
     }
 
 

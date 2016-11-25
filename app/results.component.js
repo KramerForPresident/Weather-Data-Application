@@ -18,15 +18,18 @@ var ResultsComponent = (function () {
         this.entryService = entryService;
         this.a = {};
         this.isEmpty = true;
+        this.currentCity = "Thunder Bay";
     }
     ResultsComponent.prototype.getEntries = function (input) {
         var _this = this;
         this.entryService.getEntries(input).then(function (dt) { return _this.dataReceived(dt); });
         this.isEmpty = false;
     };
-    ResultsComponent.prototype.dataReceived = function (dt) {
-        console.log("Received the data and got us some dollars");
-        console.log(dt);
+    ResultsComponent.prototype.dataReceived = function (input) {
+        this.entries = input;
+        for (var i = 0; i < this.entries.length; i++) {
+            console.log(this.entries[i]);
+        }
     };
     __decorate([
         core_1.Input(), 

@@ -7,19 +7,23 @@
 
 
     <table id = "results-table">
+        <div>
         <tr *ngIf="!isEmpty">
             <th>City</th>
-            <th>High</th>
-            <th>Low</th>
-
+            <th>Weather</th>
+            <th>Temperature</th>
         </tr>
+            </div>
 
 
-        <!--<tr *ngFor="let val of entries">-->
-            <!--<td>{{val.city}}</td>-->
-            <!--<td>{{val.high}}</td>-->
-            <!--<td>{{val.low}}</td>-->
-        <!--</tr>-->
+            <tr *ngFor="let val of entries">
+                <div *ngIf="val.city.name==currentCity">
+                    <td>{{val.city.name}}</td>
+                    <td>{{val.weather.description}}</td>
+                    <td>{{val.main.temp}}° C</td>
+                    <td>{{val.main.weather}}</td>
+                </div>
+            </tr>
     </table>
 
 

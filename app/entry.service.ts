@@ -19,36 +19,33 @@ import 'rxjs/add/operator/catch';
 @Injectable()
 export class EntryService{
 
-    private url = 'http://sample-env-1.ds75epucp6.us-east-1.elasticbeanstalk.com/weatherfile/getTest';
     constructor(private http: Http ){}
+    private baseUrl = "http://sample-env-1.ds75epucp6.us-east-1.elasticbeanstalk.com/Weatherfile/";
+
 
     getEntries(data): Promise<Entry[]>{
-        var samples = [];
-        var city = data.city;
         var sDate = data.start;
         var eDate = data.end;
+        var url;
+
         //console.log("Sending request for: " + city + " " + sDate + " " + eDate);
 
+        if(sDate == eDate){
 
-        //
-        return this.http.get(this.url)
+            console.log("theyre literally the same");
+            url = this.baseUrl + "getByDate?date=" + sDate;
+        }
+        else{
+            url = this.baseUrl + "getBetween?date1=" + sDate + "&date2=" + eDate;
+        }
+
+        console.log(url);
+
+        return this.http.get(url)
             .toPromise()
             .then(response => response.json() as Entry[])
             .catch(this.handleError);
 
-
-
-        //a temp random object generator. it'll suffice till we start using an endpoint
-        // var ind = Math.floor(Math.random()*20 + 1);
-        // for(var i = 1; i <= ind; i++){
-        //     samples.push()
-        //     samples.push(
-        //         new Entry(10+i, city, Math.floor(Math.random()*40 + 1), Math.floor(Math.random()*40 + 1))
-        //     );
-        // }
-
-        //return Promise.resolve(samples);
-        //return samples;
     }
 
     private handleError(error: any): Promise<any> {
