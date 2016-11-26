@@ -19,8 +19,8 @@ var FormComponent = (function () {
         //TODO: get these from a service... via polled cities
         this.cities = ['Thunder Bay', 'Toronto', 'Barrie', "Phoenix"];
         //okay very bad code starting in 3-2-1 GO
-        this.startDate = ["2016-11-25", "2012-11-25"];
-        this.endDate = ["2016-11-25", "2012-11-25"];
+        this.startDate = ["2016-11-25", "2016-11-26"];
+        this.endDate = ["2016-11-25", "2016-11-26"];
         this.submitted = false;
         this.selectedCity = this.cities[0];
         //if this works then holy moly

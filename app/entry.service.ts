@@ -32,7 +32,6 @@ export class EntryService{
 
         if(sDate == eDate){
 
-            console.log("theyre literally the same");
             url = this.baseUrl + "getByDate?date=" + sDate;
         }
         else{

@@ -21,8 +21,8 @@ export class FormComponent{
     cities = ['Thunder Bay', 'Toronto', 'Barrie', "Phoenix"];
 
     //okay very bad code starting in 3-2-1 GO
-    startDate = ["2016-11-25", "2012-11-25"];
-    endDate = ["2016-11-25", "2012-11-25"];
+    startDate = ["2016-11-25", "2016-11-26"];
+    endDate = ["2016-11-25", "2016-11-26"];
 
 
 

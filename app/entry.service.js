@@ -27,7 +27,6 @@ var EntryService = (function () {
         var url;
         //console.log("Sending request for: " + city + " " + sDate + " " + eDate);
         if (sDate == eDate) {
-            console.log("theyre literally the same");
             url = this.baseUrl + "getByDate?date=" + sDate;
         }
         else {

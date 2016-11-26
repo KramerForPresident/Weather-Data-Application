@@ -8,7 +8,7 @@
 import { Component, Input, OnInit} from '@angular/core';
 
 import {ChartService} from './chart.service';
-
+import {EntryService} from './entry.service';
 
 
 declare var google:any;
@@ -24,6 +24,8 @@ declare var google:any;
 export class ComparisonComponent implements OnInit{
 
     private options;
+    private seriesA: any;
+    private seriesB: any;
     private data;
     private chart;
     private static googleLoaded:any;
@@ -31,7 +33,7 @@ export class ComparisonComponent implements OnInit{
     @Input() compMode: boolean;
 
 
-    constructor(private chartService: ChartService){}
+    constructor(private entryService: EntryService){}
 
 
     getGoogle() {
@@ -82,19 +84,51 @@ export class ComparisonComponent implements OnInit{
 
 
     getChart(input): void{
-        var plots;
 
-        plots = this.chartService.getChartData(input);
 
-        console.log(plots);
+        this.entryService.getEntries(input[0]).then((dt) => {
+            this.seriesA = dt;
+
+            console.log("printing series A");
+
+            for(var i = 0; i < this.seriesA.length; i++){
+                console.log(this.seriesA[i]);
+            }
+            console.log("\n");
+
+        });
+
+        this.entryService.getEntries(input[1]).then((dt) => {
+            this.seriesB = dt;
+
+            console.log("printing series B");
+
+
+            for(var i = 0; i < this.seriesA.length; i++){
+                console.log(this.seriesB[i]);
+            }
+
+            console.log("\n");
+
+
+        });
+
+
+
+
+
 
         console.log("changing data, drawing chart");
-
         this.chart = this.createBarChart(document.getElementById('my-chart'));
-
         this.chart.draw(this.data, this.options);
-
     }
+
+
+
+
+
+
+
 
 
 }

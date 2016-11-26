@@ -15,10 +15,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var chart_service_1 = require('./chart.service');
+var entry_service_1 = require('./entry.service');
 var ComparisonComponent = (function () {
-    function ComparisonComponent(chartService) {
-        this.chartService = chartService;
+    function ComparisonComponent(entryService) {
+        this.entryService = entryService;
     }
     ComparisonComponent.prototype.getGoogle = function () {
         return google;
@@ -58,9 +58,23 @@ var ComparisonComponent = (function () {
         };
     };
     ComparisonComponent.prototype.getChart = function (input) {
-        var plots;
-        plots = this.chartService.getChartData(input);
-        console.log(plots);
+        var _this = this;
+        this.entryService.getEntries(input[0]).then(function (dt) {
+            _this.seriesA = dt;
+            console.log("printing series A");
+            for (var i = 0; i < _this.seriesA.length; i++) {
+                console.log(_this.seriesA[i]);
+            }
+            console.log("\n");
+        });
+        this.entryService.getEntries(input[1]).then(function (dt) {
+            _this.seriesB = dt;
+            console.log("printing series B");
+            for (var i = 0; i < _this.seriesA.length; i++) {
+                console.log(_this.seriesB[i]);
+            }
+            console.log("\n");
+        });
         console.log("changing data, drawing chart");
         this.chart = this.createBarChart(document.getElementById('my-chart'));
         this.chart.draw(this.data, this.options);
@@ -75,7 +89,7 @@ var ComparisonComponent = (function () {
             selector: 'comparison-box',
             templateUrl: 'comparison.component.html'
         }), 
-        __metadata('design:paramtypes', [chart_service_1.ChartService])
+        __metadata('design:paramtypes', [entry_service_1.EntryService])
     ], ComparisonComponent);
     return ComparisonComponent;
 }());

@@ -19,11 +19,17 @@ var ChartService = (function () {
     }
     ChartService.prototype.getChartData = function (data) {
         //data should be an array[] of request data
-        var plots = [];
+        var _this = this;
+        this.plots = [];
         for (var i = 0; i < data.length; i++) {
+            //for each requested date range, request an array of entries for it
+            this.entryService.getEntries(data[i]).then(function (dt) {
+                console.log(dt);
+                console.log("appending");
+                _this.plots.push(dt);
+            });
         }
-        //so now, plots[] should be an array of entries[] arrays.
-        return plots;
+        console.log("done");
     };
     ChartService = __decorate([
         core_1.Injectable(), 
