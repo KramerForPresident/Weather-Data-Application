@@ -14,8 +14,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var core_2 = require('@angular/core');
 var core_3 = require('@angular/core');
+var city_service_1 = require("./city.service");
 var FormComponent = (function () {
-    function FormComponent() {
+    function FormComponent(cityService) {
+        this.cityService = cityService;
         //TODO: get these from a service... via polled cities
         this.cities = ['Thunder Bay', 'Toronto', 'Barrie', "Phoenix"];
         //okay very bad code starting in 3-2-1 GO
@@ -33,6 +35,9 @@ var FormComponent = (function () {
         this.onCityChange = new core_3.EventEmitter();
         this.onCompClicked = new core_3.EventEmitter();
     }
+    FormComponent.prototype.ngOnInit = function () {
+        this.retrievePolledCities();
+    };
     FormComponent.prototype.changeStart = function (val, index) {
         var sD = Date.parse(val);
         var eD = Date.parse(this.endDate[index]);
@@ -107,6 +112,14 @@ var FormComponent = (function () {
         //console.log(data);
         this.onCompared.emit(data);
     };
+    FormComponent.prototype.retrievePolledCities = function () {
+        var _this = this;
+        this.cityService.getCities().then(function (dt) { return _this.myCallBack(dt); });
+    };
+    FormComponent.prototype.myCallBack = function (input) {
+        console.log("hello it's a callback......");
+        console.log(input);
+    };
     __decorate([
         core_2.Output(), 
         __metadata('design:type', Object)
@@ -129,7 +142,7 @@ var FormComponent = (function () {
             selector: 'my-form',
             templateUrl: 'form.component.html'
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [city_service_1.CityService])
     ], FormComponent);
     return FormComponent;
 }());

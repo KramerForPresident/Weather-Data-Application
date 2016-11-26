@@ -31,9 +31,7 @@ export class ResultsComponent{
     }
 
     getEntries(input): void{
-
-        this.entryService.getEntries(input).then(dt => this.dataReceived(dt));
-
+        this.entryService.getEntries(input).then(dt => this.myCallBack(dt));
         this.isEmpty = false;
     }
 
@@ -42,13 +40,17 @@ export class ResultsComponent{
         this.currentCity = input;
     }
 
-    private dataReceived(input){
+    private myCallBack(input){
+
+        //this is where we do logical stuff with the returned objects
+
+        console.log("single input callback");
         this.entries = input;
 
-
-        for(var i = 0; i < this.entries.length; i ++){
-            console.log(this.entries[i]);
-        }
+        //
+        // for(var i = 0; i < this.entries.length; i ++){
+        //     console.log(this.entries[i]);
+        // }
 
     }
 

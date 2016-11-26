@@ -27,8 +27,6 @@ var ChartService = (function () {
         this.baseUrl = "http://sample-env-1.ds75epucp6.us-east-1.elasticbeanstalk.com/Weatherfile/";
     }
     ChartService.prototype.getChartData = function (data) {
-        //data should be an array[] of request data
-        // Observable.forkJoin(this.http.get('/app/books.json').map((res:Response) => res.json())
         var sDate1 = data[0].start;
         var eDate1 = data[0].end;
         var sDate2 = data[1].start;

@@ -8,6 +8,8 @@ import {EntryDetailComponent} from './entry-detail.component';
 import {EntryService} from './entry.service';
 import {OnInit} from '@angular/core';
 import {FormComponent} from './form.component';
+import {CityService} from "./city.service";
+
 import {ChartService} from "./chart.service";
 
 import 'rxjs/add/operator/map';
@@ -18,7 +20,7 @@ import 'rxjs/add/operator/map';
     selector: 'my-app',
     moduleId: module.id,
     templateUrl: 'app.component.html',
-    providers: [EntryService, ChartService]
+    providers: [EntryService, ChartService, CityService]
 })
 
 export class AppComponent {

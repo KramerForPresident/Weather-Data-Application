@@ -3,17 +3,12 @@
  */
 
 import { Injectable } from '@angular/core';
-
 import {Entry} from './entry';
-
 import {Http, Response} from '@angular/http';
-
 import { Observable }     from 'rxjs/Observable';
-
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/catch';
-
 
 
 @Injectable()
@@ -27,8 +22,6 @@ export class EntryService{
         var sDate = data.start;
         var eDate = data.end;
         var url;
-
-        //console.log("Sending request for: " + city + " " + sDate + " " + eDate);
 
         if(sDate == eDate){
 

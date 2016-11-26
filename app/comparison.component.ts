@@ -44,14 +44,13 @@ export class ComparisonComponent implements OnInit{
         console.log('ngOnInit');
         if(!ComparisonComponent.googleLoaded) {
             ComparisonComponent.googleLoaded = true;
-            google.charts.load('current',  {packages: ['corechart', 'bar']});
+            google.charts.load('current',  {packages: ['corechart', 'line']});
         }
         google.charts.setOnLoadCallback(() => this.loadGraph());
     }
 
-
     createBarChart(element:any):any {
-        return new google.visualization.BarChart(element);
+        return new google.visualization.LineChart(element);
     }
 
     createDataTable(array:any[]):any {
@@ -60,24 +59,24 @@ export class ComparisonComponent implements OnInit{
 
     loadGraph(){
 
-        console.log("loading graph data...");
-        this.data = this.createDataTable([
-            ['City', 'High', 'Low'],
-            ['A', 88, 27],
-            ['B', 90, 20],
-            ['C', 70, 22]
-        ]);
+
+        this.data = new google.visualization.DataTable();
+
+
+        this.data.addColumn('number', 'X');
+        this.data.addColumn('number', 'Dogs');
+
 
 
         this.options = {
 
             title: 'Cities and Weather',
-            chartArea: {width: '50%'},
+            chartArea: {width: '100%'},
             hAxis: {
-                title: 'High'
+                title: 'Time'
             },
             vAxis: {
-                title: 'City'
+                title: 'Temperature'
             }
         };
 
@@ -85,22 +84,47 @@ export class ComparisonComponent implements OnInit{
 
 
     getChart(input): void{
-
         this.chartService.getChartData(input).subscribe(dt => this.myCallBack(dt));
-
     }
 
 
 
 
-    private myCallBack(data){
-        console.log("this gets called once we retrieve chart data");
-        console.log(data);
 
-        console.log("changing data, drawing chart");
+    generateGraph(seriesA, seriesB){
+
+        console.log("Printing series A");
+        for(var i=0; i < seriesA.length; i++){
+            console.log(seriesA[i]);
+        }
+
+        console.log("Printing series B");
+        for(var i=0; i < seriesB.length; i++){
+            console.log(seriesB[i]);
+        }
+
+
+
         this.chart = this.createBarChart(document.getElementById('my-chart'));
         this.chart.draw(this.data, this.options);
+
+
     }
+
+
+
+
+    private myCallBack(input){
+
+        //this is where we do logical stuff with the returned objects
+        console.log("multi input callback");
+
+        this.generateGraph(input[0], input[1]);
+
+    }
+
+
+
 
 
 

@@ -7,7 +7,11 @@ import { Output } from '@angular/core';
 import {EventEmitter} from '@angular/core';
 import { Entry} from './entry';
 import {ResultsComponent} from "./results.component"
+import { OnInit } from '@angular/core';
+
 import Result = jasmine.Result;
+import {CityService} from "./city.service";
+
 
 @Component({
     moduleId: module.id,
@@ -15,7 +19,7 @@ import Result = jasmine.Result;
     templateUrl: 'form.component.html'
 })
 
-export class FormComponent{
+export class FormComponent implements OnInit{
 
     //TODO: get these from a service... via polled cities
     cities = ['Thunder Bay', 'Toronto', 'Barrie', "Phoenix"];
@@ -40,6 +44,14 @@ export class FormComponent{
     @Output() onCityChange = new EventEmitter();
 
     @Output() onCompClicked = new EventEmitter();
+
+
+
+    constructor(private cityService: CityService){}
+
+    ngOnInit(): void {
+        this.retrievePolledCities();
+    }
 
 
 
@@ -138,6 +150,17 @@ export class FormComponent{
         this.onCompared.emit(data)
     }
 
+
+
+    retrievePolledCities(){
+        this.cityService.getCities().then(dt => this.myCallBack(dt));
+
+    }
+
+    private myCallBack(input){
+        console.log("hello it's a callback......");
+        console.log(input);
+    }
 
 
 

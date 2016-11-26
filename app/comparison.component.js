@@ -28,32 +28,28 @@ var ComparisonComponent = (function () {
         console.log('ngOnInit');
         if (!ComparisonComponent.googleLoaded) {
             ComparisonComponent.googleLoaded = true;
-            google.charts.load('current', { packages: ['corechart', 'bar'] });
+            google.charts.load('current', { packages: ['corechart', 'line'] });
         }
         google.charts.setOnLoadCallback(function () { return _this.loadGraph(); });
     };
     ComparisonComponent.prototype.createBarChart = function (element) {
-        return new google.visualization.BarChart(element);
+        return new google.visualization.LineChart(element);
     };
     ComparisonComponent.prototype.createDataTable = function (array) {
         return google.visualization.arrayToDataTable(array);
     };
     ComparisonComponent.prototype.loadGraph = function () {
-        console.log("loading graph data...");
-        this.data = this.createDataTable([
-            ['City', 'High', 'Low'],
-            ['A', 88, 27],
-            ['B', 90, 20],
-            ['C', 70, 22]
-        ]);
+        this.data = new google.visualization.DataTable();
+        this.data.addColumn('number', 'X');
+        this.data.addColumn('number', 'Dogs');
         this.options = {
             title: 'Cities and Weather',
-            chartArea: { width: '50%' },
+            chartArea: { width: '100%' },
             hAxis: {
-                title: 'High'
+                title: 'Time'
             },
             vAxis: {
-                title: 'City'
+                title: 'Temperature'
             }
         };
     };
@@ -61,12 +57,22 @@ var ComparisonComponent = (function () {
         var _this = this;
         this.chartService.getChartData(input).subscribe(function (dt) { return _this.myCallBack(dt); });
     };
-    ComparisonComponent.prototype.myCallBack = function (data) {
-        console.log("this gets called once we retrieve chart data");
-        console.log(data);
-        console.log("changing data, drawing chart");
+    ComparisonComponent.prototype.generateGraph = function (seriesA, seriesB) {
+        console.log("Printing series A");
+        for (var i = 0; i < seriesA.length; i++) {
+            console.log(seriesA[i]);
+        }
+        console.log("Printing series B");
+        for (var i = 0; i < seriesB.length; i++) {
+            console.log(seriesB[i]);
+        }
         this.chart = this.createBarChart(document.getElementById('my-chart'));
         this.chart.draw(this.data, this.options);
+    };
+    ComparisonComponent.prototype.myCallBack = function (input) {
+        //this is where we do logical stuff with the returned objects
+        console.log("multi input callback");
+        this.generateGraph(input[0], input[1]);
     };
     __decorate([
         core_1.Input(), 

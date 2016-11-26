@@ -13,6 +13,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var entry_service_1 = require('./entry.service');
+var city_service_1 = require("./city.service");
 var chart_service_1 = require("./chart.service");
 require('rxjs/add/operator/map');
 var AppComponent = (function () {
@@ -39,7 +40,7 @@ var AppComponent = (function () {
             selector: 'my-app',
             moduleId: module.id,
             templateUrl: 'app.component.html',
-            providers: [entry_service_1.EntryService, chart_service_1.ChartService]
+            providers: [entry_service_1.EntryService, chart_service_1.ChartService, city_service_1.CityService]
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);

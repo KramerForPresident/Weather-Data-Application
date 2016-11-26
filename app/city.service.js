@@ -1,5 +1,5 @@
 /**
- * Created by pwluft on 2016-09-27.
+ * Created by pwluft on 2016-11-26.
  */
 "use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -16,36 +16,26 @@ var http_1 = require('@angular/http');
 require('rxjs/add/operator/map');
 require('rxjs/add/operator/toPromise');
 require('rxjs/add/operator/catch');
-var EntryService = (function () {
-    function EntryService(http) {
+var CityService = (function () {
+    function CityService(http) {
         this.http = http;
-        this.baseUrl = "http://sample-env-1.ds75epucp6.us-east-1.elasticbeanstalk.com/Weatherfile/";
+        this.url = "http://sample-env-1.ds75epucp6.us-east-1.elasticbeanstalk.com/City/polled";
     }
-    EntryService.prototype.getEntries = function (data) {
-        var sDate = data.start;
-        var eDate = data.end;
-        var url;
-        if (sDate == eDate) {
-            url = this.baseUrl + "getByDate?date=" + sDate;
-        }
-        else {
-            url = this.baseUrl + "getBetween?date1=" + sDate + "&date2=" + eDate;
-        }
-        console.log(url);
-        return this.http.get(url)
+    CityService.prototype.getCities = function () {
+        return this.http.get(this.url)
             .toPromise()
             .then(function (response) { return response.json(); })
             .catch(this.handleError);
     };
-    EntryService.prototype.handleError = function (error) {
+    CityService.prototype.handleError = function (error) {
         console.error('An error occurred', error); // for demo purposes only
         return Promise.reject(error.message || error);
     };
-    EntryService = __decorate([
+    CityService = __decorate([
         core_1.Injectable(), 
         __metadata('design:paramtypes', [http_1.Http])
-    ], EntryService);
-    return EntryService;
+    ], CityService);
+    return CityService;
 }());
-exports.EntryService = EntryService;
-//# sourceMappingURL=entry.service.js.map
+exports.CityService = CityService;
+//# sourceMappingURL=city.service.js.map
