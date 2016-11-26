@@ -9,11 +9,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/comparison.component.js" afterPath="$PROJECT_DIR$/app/comparison.component.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/comparison.component.js.map" afterPath="$PROJECT_DIR$/app/comparison.component.js.map" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/comparison.component.ts" afterPath="$PROJECT_DIR$/app/comparison.component.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/entry.service.js" afterPath="$PROJECT_DIR$/app/entry.service.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/entry.service.js.map" afterPath="$PROJECT_DIR$/app/entry.service.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/entry.service.ts" afterPath="$PROJECT_DIR$/app/entry.service.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/form.component.js" afterPath="$PROJECT_DIR$/app/form.component.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/form.component.ts" afterPath="$PROJECT_DIR$/app/form.component.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/results.component.html" afterPath="$PROJECT_DIR$/app/results.component.html" />
     </list>
     <ignored path="angular-weather.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -35,26 +31,28 @@
     <favorites_list name="angular-weather" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.61071146">
+    <splitter split-orientation="horizontal" split-proportion="0.641438">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="results.component.html" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/results.component.html">
+          <file leaf-file-name="comparison.component.ts" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/app/comparison.component.ts">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="135">
-                  <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-                  <folding />
+                <state relative-caret-position="200">
+                  <caret line="87" column="8" selection-start-line="87" selection-start-column="8" selection-end-line="87" selection-end-column="8" />
+                  <folding>
+                    <element signature="e#89#145#0" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="comparison.component.ts" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/app/comparison.component.ts">
+          <file leaf-file-name="chart.service.ts" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/app/chart.service.ts">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="380">
-                  <caret line="110" column="30" selection-start-line="110" selection-start-column="30" selection-end-line="110" selection-end-column="30" />
+                <state relative-caret-position="275">
+                  <caret line="75" column="0" selection-start-line="75" selection-start-column="0" selection-end-line="75" selection-end-column="0" />
                   <folding>
-                    <element signature="e#89#145#0" expanded="true" />
+                    <element signature="e#46#87#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -64,12 +62,24 @@
       </split-first>
       <split-second>
         <leaf>
-          <file leaf-file-name="results.component.ts" pinned="false" current-in-tab="true">
+          <file leaf-file-name="results.component.ts" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/results.component.ts">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="380">
+                <state relative-caret-position="615">
                   <caret line="48" column="19" selection-start-line="48" selection-start-column="19" selection-end-line="48" selection-end-column="19" />
                   <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="entry.service.ts" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/app/entry.service.ts">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="200">
+                  <caret line="37" column="26" selection-start-line="37" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+                  <folding>
+                    <element signature="e#45#88#0" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -169,6 +179,30 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="luna-weatherbox" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="luna-weatherbox" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="luna-weatherbox" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="luna-weatherbox" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="luna-weatherbox" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -310,12 +344,12 @@
       <workItem from="1480039673521" duration="242000" />
       <workItem from="1480103498216" duration="328000" />
       <workItem from="1480105231181" duration="5175000" />
-      <workItem from="1480185965893" duration="5865000" />
+      <workItem from="1480185965893" duration="9511000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="137384000" />
+    <option name="totallyTimeSpent" value="141030000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -331,7 +365,7 @@
     <editor active="true" />
     <layout>
       <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2716593" sideWeight="0.79374" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.0063542495" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.06433678" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934132" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28614917" sideWeight="0.1187801" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32876712" sideWeight="0.49678972" order="8" side_tool="false" content_ui="tabs" />
@@ -688,40 +722,44 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/results.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/entry.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="155">
-          <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/chart.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="395">
-          <caret line="35" column="29" selection-start-line="35" selection-start-column="29" selection-end-line="35" selection-end-column="29" />
+        <state relative-caret-position="360">
+          <caret line="24" column="33" selection-start-line="24" selection-start-column="33" selection-end-line="24" selection-end-column="33" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/results.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
+        <state relative-caret-position="615">
           <caret line="48" column="19" selection-start-line="48" selection-start-column="19" selection-end-line="48" selection-end-column="19" />
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/entry.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="37" column="26" selection-start-line="37" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+          <folding>
+            <element signature="e#45#88#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/chart.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="75" column="0" selection-start-line="75" selection-start-column="0" selection-end-line="75" selection-end-column="0" />
+          <folding>
+            <element signature="e#46#87#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/comparison.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="110" column="30" selection-start-line="110" selection-start-column="30" selection-end-line="110" selection-end-column="30" />
+        <state relative-caret-position="200">
+          <caret line="87" column="8" selection-start-line="87" selection-start-column="8" selection-end-line="87" selection-end-column="8" />
           <folding>
             <element signature="e#89#145#0" expanded="true" />
           </folding>

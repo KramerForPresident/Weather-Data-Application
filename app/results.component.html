@@ -9,6 +9,7 @@
     <table id = "results-table">
         <tr>
             <div *ngIf="!isEmpty">
+                <th>Date</th>
                 <th>City</th>
                 <th>Weather</th>
                 <th>Temperature</th>
@@ -18,10 +19,11 @@
 
         <tr *ngFor="let val of entries">
             <div *ngIf="val.city.name==currentCity">
+                <td>{{val.dateCreated}}</td>
                 <td>{{val.city.name}}</td>
                 <td>{{val.weather.description}}</td>
                 <td>{{val.main.temp}}° C</td>
-                <td>{{val.main.weather}}</td>
+                <td>{{val.weather.main}}</td>
             </div>
         </tr>
     </table>

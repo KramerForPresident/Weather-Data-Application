@@ -26,6 +26,7 @@ export class ComparisonComponent implements OnInit{
     private options;
     private seriesA: any;
     private seriesB: any;
+    private chartData;
     private data;
     private chart;
     private static googleLoaded:any;
@@ -33,7 +34,7 @@ export class ComparisonComponent implements OnInit{
     @Input() compMode: boolean;
 
 
-    constructor(private entryService: EntryService){}
+    constructor(private chartService: ChartService){}
 
 
     getGoogle() {
@@ -85,46 +86,21 @@ export class ComparisonComponent implements OnInit{
 
     getChart(input): void{
 
+        this.chartService.getChartData(input).subscribe(dt => this.myCallBack(dt));
 
-        this.entryService.getEntries(input[0]).then((dt) => {
-            this.seriesA = dt;
-
-            console.log("printing series A");
-
-            for(var i = 0; i < this.seriesA.length; i++){
-                console.log(this.seriesA[i]);
-            }
-            console.log("\n");
-
-        });
-
-        this.entryService.getEntries(input[1]).then((dt) => {
-            this.seriesB = dt;
-
-            console.log("printing series B");
-
-
-            for(var i = 0; i < this.seriesA.length; i++){
-                console.log(this.seriesB[i]);
-            }
-
-            console.log("\n");
-
-
-        });
+    }
 
 
 
 
-
+    private myCallBack(data){
+        console.log("this gets called once we retrieve chart data");
+        console.log(data);
 
         console.log("changing data, drawing chart");
         this.chart = this.createBarChart(document.getElementById('my-chart'));
         this.chart.draw(this.data, this.options);
     }
-
-
-
 
 
 

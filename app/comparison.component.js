@@ -15,10 +15,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var entry_service_1 = require('./entry.service');
+var chart_service_1 = require('./chart.service');
 var ComparisonComponent = (function () {
-    function ComparisonComponent(entryService) {
-        this.entryService = entryService;
+    function ComparisonComponent(chartService) {
+        this.chartService = chartService;
     }
     ComparisonComponent.prototype.getGoogle = function () {
         return google;
@@ -59,22 +59,11 @@ var ComparisonComponent = (function () {
     };
     ComparisonComponent.prototype.getChart = function (input) {
         var _this = this;
-        this.entryService.getEntries(input[0]).then(function (dt) {
-            _this.seriesA = dt;
-            console.log("printing series A");
-            for (var i = 0; i < _this.seriesA.length; i++) {
-                console.log(_this.seriesA[i]);
-            }
-            console.log("\n");
-        });
-        this.entryService.getEntries(input[1]).then(function (dt) {
-            _this.seriesB = dt;
-            console.log("printing series B");
-            for (var i = 0; i < _this.seriesA.length; i++) {
-                console.log(_this.seriesB[i]);
-            }
-            console.log("\n");
-        });
+        this.chartService.getChartData(input).subscribe(function (dt) { return _this.myCallBack(dt); });
+    };
+    ComparisonComponent.prototype.myCallBack = function (data) {
+        console.log("this gets called once we retrieve chart data");
+        console.log(data);
         console.log("changing data, drawing chart");
         this.chart = this.createBarChart(document.getElementById('my-chart'));
         this.chart.draw(this.data, this.options);
@@ -89,7 +78,7 @@ var ComparisonComponent = (function () {
             selector: 'comparison-box',
             templateUrl: 'comparison.component.html'
         }), 
-        __metadata('design:paramtypes', [entry_service_1.EntryService])
+        __metadata('design:paramtypes', [chart_service_1.ChartService])
     ], ComparisonComponent);
     return ComparisonComponent;
 }());
