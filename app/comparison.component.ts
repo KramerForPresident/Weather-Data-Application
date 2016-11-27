@@ -41,7 +41,6 @@ export class ComparisonComponent implements OnInit{
         return google;
     }
     ngOnInit() {
-        console.log('ngOnInit');
         if(!ComparisonComponent.googleLoaded) {
             ComparisonComponent.googleLoaded = true;
             google.charts.load('current',  {packages: ['corechart', 'line']});
@@ -64,18 +63,28 @@ export class ComparisonComponent implements OnInit{
 
 
         this.data.addColumn('number', 'X');
-        this.data.addColumn('number', 'Dogs');
+        this.data.addColumn('number', 'seriesA');
+       // this.data.addColumn('number', 'seriesB');
 
 
 
         this.options = {
 
+            legend: 'none',
+
+            backgroundColor: '#151517',
+            legendTextStyle: { color: 'white' },
+            titleTextStyle: { color: 'white' },
+
             title: 'Cities and Weather',
-            chartArea: {width: '100%'},
+            chartArea: {width: '70%', height: '80%'},
             hAxis: {
-                title: 'Time'
+                gridLines: {count: 0},
+                textStyle:{color: 'white'},
+                color: 'white'
             },
             vAxis: {
+                textStyle:{color: '#FFFFFF'},
                 title: 'Temperature'
             }
         };
@@ -94,15 +103,12 @@ export class ComparisonComponent implements OnInit{
     generateGraph(seriesA, seriesB){
 
         console.log("Printing series A");
-        for(var i=0; i < seriesA.length; i++){
-            console.log(seriesA[i]);
-        }
 
-        console.log("Printing series B");
-        for(var i=0; i < seriesB.length; i++){
-            console.log(seriesB[i]);
+        for(var i = 0; i < seriesA.length; i++){
+            this.data.addRows([
+                [i + 1, seriesA[i].main.temp]
+            ])
         }
-
 
 
         this.chart = this.createBarChart(document.getElementById('my-chart'));

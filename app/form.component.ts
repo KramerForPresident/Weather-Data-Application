@@ -22,7 +22,9 @@ import {CityService} from "./city.service";
 export class FormComponent implements OnInit{
 
     //TODO: get these from a service... via polled cities
-    cities = ['Thunder Bay', 'Toronto', 'Barrie', "Phoenix"];
+   // cities = ['Thunder Bay', 'Toronto', 'Barrie', "Phoenix"];
+    cities = [];
+
 
     //okay very bad code starting in 3-2-1 GO
     startDate = ["2016-11-25", "2016-11-26"];
@@ -31,7 +33,7 @@ export class FormComponent implements OnInit{
 
 
     submitted = false;
-    selectedCity = this.cities[0];
+    selectedCity;
     //if this works then holy moly
     //startDate = "2016-08-30";
     //endDate = "2016-08-31";
@@ -42,7 +44,6 @@ export class FormComponent implements OnInit{
     @Output() onSubmitted = new EventEmitter();
     @Output() onCompared = new EventEmitter();
     @Output() onCityChange = new EventEmitter();
-
     @Output() onCompClicked = new EventEmitter();
 
 
@@ -133,6 +134,7 @@ export class FormComponent implements OnInit{
 
 
     changeCity(val){
+
         this.selectedCity = val;
         this.onCityChange.emit(this.selectedCity);
     }
@@ -150,16 +152,17 @@ export class FormComponent implements OnInit{
         this.onCompared.emit(data)
     }
 
-
-
     retrievePolledCities(){
         this.cityService.getCities().then(dt => this.myCallBack(dt));
 
     }
 
     private myCallBack(input){
-        console.log("hello it's a callback......");
-        console.log(input);
+
+        for(var i = 0; i < input.length; i++){
+            this.cities.push(input[i]);
+        }
+        this.changeCity(this.cities[0].name);
     }
 
 

@@ -19,12 +19,12 @@ var FormComponent = (function () {
     function FormComponent(cityService) {
         this.cityService = cityService;
         //TODO: get these from a service... via polled cities
-        this.cities = ['Thunder Bay', 'Toronto', 'Barrie', "Phoenix"];
+        // cities = ['Thunder Bay', 'Toronto', 'Barrie', "Phoenix"];
+        this.cities = [];
         //okay very bad code starting in 3-2-1 GO
         this.startDate = ["2016-11-25", "2016-11-26"];
         this.endDate = ["2016-11-25", "2016-11-26"];
         this.submitted = false;
-        this.selectedCity = this.cities[0];
         //if this works then holy moly
         //startDate = "2016-08-30";
         //endDate = "2016-08-31";
@@ -117,8 +117,10 @@ var FormComponent = (function () {
         this.cityService.getCities().then(function (dt) { return _this.myCallBack(dt); });
     };
     FormComponent.prototype.myCallBack = function (input) {
-        console.log("hello it's a callback......");
-        console.log(input);
+        for (var i = 0; i < input.length; i++) {
+            this.cities.push(input[i]);
+        }
+        this.changeCity(this.cities[0].name);
     };
     __decorate([
         core_2.Output(), 

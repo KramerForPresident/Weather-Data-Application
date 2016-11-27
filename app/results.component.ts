@@ -22,9 +22,7 @@ export class ResultsComponent{
     entries: any;
     a = {};
     isEmpty = true;
-
-    currentCity = "Thunder Bay";
-
+    currentCity;
 
 
     constructor(private entryService: EntryService){
@@ -44,13 +42,8 @@ export class ResultsComponent{
 
         //this is where we do logical stuff with the returned objects
 
-        console.log("single input callback");
+        //console.log("single input callback");
         this.entries = input;
-
-        //
-        // for(var i = 0; i < this.entries.length; i ++){
-        //     console.log(this.entries[i]);
-        // }
 
     }
 

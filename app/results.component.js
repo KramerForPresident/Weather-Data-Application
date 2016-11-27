@@ -18,7 +18,6 @@ var ResultsComponent = (function () {
         this.entryService = entryService;
         this.a = {};
         this.isEmpty = true;
-        this.currentCity = "Thunder Bay";
     }
     ResultsComponent.prototype.getEntries = function (input) {
         var _this = this;
@@ -30,12 +29,8 @@ var ResultsComponent = (function () {
     };
     ResultsComponent.prototype.myCallBack = function (input) {
         //this is where we do logical stuff with the returned objects
-        console.log("single input callback");
+        //console.log("single input callback");
         this.entries = input;
-        //
-        // for(var i = 0; i < this.entries.length; i ++){
-        //     console.log(this.entries[i]);
-        // }
     };
     __decorate([
         core_1.Input(), 

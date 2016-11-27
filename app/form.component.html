@@ -2,7 +2,7 @@
 <div class="form-group">
     <h3>Select City:</h3>
     <select class="form-control" id="city" #cvar (change)="changeCity(cvar.value)">
-        <option *ngFor="let en of cities" [value]="en">{{en}}</option>
+        <option *ngFor="let en of cities" [value]="en.name">{{en.name}}</option>
     </select>
 </div>
 
