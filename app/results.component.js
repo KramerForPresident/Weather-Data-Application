@@ -27,10 +27,16 @@ var ResultsComponent = (function () {
     ResultsComponent.prototype.changeCity = function (input) {
         this.currentCity = input;
     };
+    ResultsComponent.prototype.printWeatherFiles = function (array) {
+        for (var i = 0; i < array.length; i++) {
+            console.log(array[i]);
+        }
+    };
     ResultsComponent.prototype.myCallBack = function (input) {
         //this is where we do logical stuff with the returned objects
         //console.log("single input callback");
         this.entries = input;
+        this.printWeatherFiles(this.entries);
     };
     __decorate([
         core_1.Input(), 

@@ -13,19 +13,31 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var http_1 = require('@angular/http');
+var http_2 = require('@angular/http');
 require('rxjs/add/operator/map');
 require('rxjs/add/operator/toPromise');
 require('rxjs/add/operator/catch');
 var CityService = (function () {
     function CityService(http) {
         this.http = http;
-        this.url = "http://sample-env-1.ds75epucp6.us-east-1.elasticbeanstalk.com/City/polled";
+        this.getUrl = "http://sample-env-1.ds75epucp6.us-east-1.elasticbeanstalk.com/City/polled";
+        this.addUrl = "http://sample-env-1.ds75epucp6.us-east-1.elasticbeanstalk.com/City/add?";
     }
     CityService.prototype.getCities = function () {
-        return this.http.get(this.url)
+        return this.http.get(this.getUrl)
             .toPromise()
             .then(function (response) { return response.json(); })
             .catch(this.handleError);
+    };
+    CityService.prototype.addCity = function (input) {
+        var headers = new http_2.Headers({ 'Content-Type': 'application/json' });
+        var options = new http_2.RequestOptions({ headers: headers });
+        var url = this.addUrl + "name=" + input.city + "&countrycode=" + input.country;
+        console.log(url);
+        // return this.http.post(url, {}, options)
+        //     .toPromise()
+        //     .then(response => response.json())
+        //     .catch(this.handleError);
     };
     CityService.prototype.handleError = function (error) {
         console.error('An error occurred', error); // for demo purposes only

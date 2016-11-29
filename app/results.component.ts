@@ -38,12 +38,20 @@ export class ResultsComponent{
         this.currentCity = input;
     }
 
+
+    printWeatherFiles(array){
+        for(var i = 0; i < array.length; i++){
+            console.log(array[i]);
+        }
+    }
+
     private myCallBack(input){
 
         //this is where we do logical stuff with the returned objects
 
         //console.log("single input callback");
         this.entries = input;
+        this.printWeatherFiles(this.entries);
 
     }
 

@@ -62,22 +62,28 @@ var ComparisonComponent = (function () {
     };
     ComparisonComponent.prototype.getChart = function (input) {
         var _this = this;
+        this.cityA = input[0].city;
+        this.cityB = input[1].city;
         this.chartService.getChartData(input).subscribe(function (dt) { return _this.myCallBack(dt); });
     };
-    ComparisonComponent.prototype.generateGraph = function (seriesA, seriesB) {
-        console.log("Printing series A");
-        for (var i = 0; i < seriesA.length; i++) {
-            this.data.addRows([
-                [i + 1, seriesA[i].main.temp]
-            ]);
-        }
+    ComparisonComponent.prototype.generateGraph = function (weather1, weather2) {
+        console.log(weather1);
+        console.log(weather2);
         this.chart = this.createBarChart(document.getElementById('my-chart'));
         this.chart.draw(this.data, this.options);
     };
     ComparisonComponent.prototype.myCallBack = function (input) {
         //this is where we do logical stuff with the returned objects
-        console.log("multi input callback");
-        this.generateGraph(input[0], input[1]);
+        //format the response data to fit an object of both
+        var c1 = "" + this.cityA;
+        var c2 = "" + this.cityB;
+        var entry1 = input[0].filter(function (obj) {
+            return obj.city.name == c1;
+        })[0];
+        var entry2 = input[1].filter(function (obj) {
+            return obj.city.name == c2;
+        })[0];
+        this.generateGraph(entry1, entry2);
     };
     __decorate([
         core_1.Input(), 

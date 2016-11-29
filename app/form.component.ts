@@ -27,16 +27,20 @@ export class FormComponent implements OnInit{
 
 
     //okay very bad code starting in 3-2-1 GO
-    startDate = ["2016-11-25", "2016-11-26"];
-    endDate = ["2016-11-25", "2016-11-26"];
+    startDate = "2016-11-28";
+    endDate = "2016-11-28";
 
-
+    compDate1 = "2016-11-28";
+    compDate2 = "2016-11-28"
 
     submitted = false;
     selectedCity;
-    //if this works then holy moly
-    //startDate = "2016-08-30";
-    //endDate = "2016-08-31";
+
+    compCity1;
+    compCity2;
+
+    pollMode = false;
+
 
     compMode = false;
     isValid = true;
@@ -55,34 +59,32 @@ export class FormComponent implements OnInit{
     }
 
 
-
-
-    changeStart(val, index){
+    changeStart(val){
         var sD = Date.parse(val);
-        var eD = Date.parse(this.endDate[index]);
+        var eD = Date.parse(this.endDate);
 
         if(sD > eD || val == ""){
             console.log("Not valid\n");
-            this.startDate[index] = this.endDate[index];
+            this.startDate = this.endDate;
         }
         else{
             console.log("Valid\n");
-            this.startDate[index] = val;
+            this.startDate = val;
         }
        // this.showStatus();
     }
 
-    changeEnd(val, index){
-        var sD = Date.parse(this.startDate[index]);
+    changeEnd(val){
+        var sD = Date.parse(this.startDate);
         var eD = Date.parse(val);
 
         if(sD > eD || val == ""){
             console.log("Not valid\n");
-            this.endDate[index] = this.startDate[index];
+            this.endDate = this.startDate;
         }
         else{
             console.log("Valid\n");
-            this.endDate[index] = val;
+            this.endDate = val;
         }
       //  this.showStatus();
     }
@@ -104,7 +106,7 @@ export class FormComponent implements OnInit{
 
         if(this.compMode != true) {
             if (this.isValid == true) {
-                this.getResults({city: this.selectedCity, start: this.startDate[0], end: this.endDate[0]});
+                this.getResults({city: this.selectedCity, start: this.startDate, end: this.endDate});
             }
             else {
                 console.log("Can't submit.");
@@ -113,14 +115,29 @@ export class FormComponent implements OnInit{
         else{
             var formArray = [];
 
-            for(var i = 0; i < this.startDate.length; i++){
-                formArray.push({city: this.selectedCity, start: this.startDate[i], end: this.endDate[i]});
-            }
+            //THE FOLLOWING CODE IS REALLY JANKY
+            //I'M SORRY I'M SORRY I'M SORRYYY
+            formArray.push({city: this.compCity1, start: this.compDate1, end: this.compDate1});
+            formArray.push({city: this.compCity2, start: this.compDate2, end: this.compDate2});
+
             this.getComparison(formArray);
 
 
         }
     }
+
+
+    managedClicked(){
+
+        if(this.pollMode == false){
+            this.pollMode = true;
+        }
+        else{
+            this.pollMode = false;
+        }
+    }
+
+
 
 
     //mostly for debugging
@@ -141,6 +158,24 @@ export class FormComponent implements OnInit{
 
 
 
+
+
+    comparisonData(c1, c2, d1, d2){
+        this.compCity1 = c1;
+        this.compCity2 = c2;
+        this.compDate1 = d1;
+        this.compDate2 = d2;
+        //
+        // console.log(this.compCity1);
+        // console.log(this.compDate1);
+        // console.log(this.compCity2);
+        // console.log(this.compDate2);
+    }
+
+
+
+
+
     //these two functions might be redundant. whatever.
     getResults(data){
         //console.log(data);
@@ -157,12 +192,24 @@ export class FormComponent implements OnInit{
 
     }
 
+
+    addCity(val1, val2){
+        var input = {city: val1, country: val2};
+        this.cityService.addCity(input);
+    }
+
+
+
+
+
     private myCallBack(input){
 
         for(var i = 0; i < input.length; i++){
             this.cities.push(input[i]);
         }
         this.changeCity(this.cities[0].name);
+        this.comparisonData(this.cities[0].name, this.cities[0].name, this.compDate1, this.compDate2);
+
     }
 
 
