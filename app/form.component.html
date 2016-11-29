@@ -56,7 +56,9 @@
 
     <button (click)="addCity(newCityName.value, newCode.value); newCityName.value='';newCode.value=''">Add City</button>
     <ul>
-       <li *ngFor="let en of cities">{{en.name}}</li>
+       <li *ngFor="let en of cities">{{en.name}}
+           <div (click)="deleteClicked(en)">X</div>
+       </li>
     </ul>
 
 </div>

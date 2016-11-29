@@ -137,6 +137,11 @@ export class FormComponent implements OnInit{
         }
     }
 
+    deleteClicked(input){
+        this.delCity(input.id);
+
+    }
+
 
 
 
@@ -194,11 +199,15 @@ export class FormComponent implements OnInit{
 
 
     addCity(val1, val2){
-        var input = {city: val1, country: val2};
-        this.cityService.addCity(input);
+        var form = {city: val1, country: val2};
+        this.cityService.addCity(form);
+        //this.cityService.addCity(input).then(dt => console.log(dt));
     }
 
-
+    delCity(val){
+        this.cityService.deleteCity(val);
+       // this.cityService.deleteCity(val).subscribe(dt => console.log(dt));
+    }
 
 
 

@@ -101,6 +101,9 @@ var FormComponent = (function () {
             this.pollMode = false;
         }
     };
+    FormComponent.prototype.deleteClicked = function (input) {
+        this.delCity(input.id);
+    };
     //mostly for debugging
     FormComponent.prototype.showStatus = function () {
         //console.log(this.selectedCity);
@@ -137,8 +140,13 @@ var FormComponent = (function () {
         this.cityService.getCities().then(function (dt) { return _this.myCallBack(dt); });
     };
     FormComponent.prototype.addCity = function (val1, val2) {
-        var input = { city: val1, country: val2 };
-        this.cityService.addCity(input);
+        var form = { city: val1, country: val2 };
+        this.cityService.addCity(form);
+        //this.cityService.addCity(input).then(dt => console.log(dt));
+    };
+    FormComponent.prototype.delCity = function (val) {
+        this.cityService.deleteCity(val);
+        // this.cityService.deleteCity(val).subscribe(dt => console.log(dt));
     };
     FormComponent.prototype.myCallBack = function (input) {
         for (var i = 0; i < input.length; i++) {

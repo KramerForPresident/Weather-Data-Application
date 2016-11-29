@@ -22,6 +22,7 @@ var CityService = (function () {
         this.http = http;
         this.getUrl = "http://sample-env-1.ds75epucp6.us-east-1.elasticbeanstalk.com/City/polled";
         this.addUrl = "http://sample-env-1.ds75epucp6.us-east-1.elasticbeanstalk.com/City/add?";
+        this.delUrl = "http://sample-env-1.ds75epucp6.us-east-1.elasticbeanstalk.com/City/";
     }
     CityService.prototype.getCities = function () {
         return this.http.get(this.getUrl)
@@ -34,10 +35,19 @@ var CityService = (function () {
         var options = new http_2.RequestOptions({ headers: headers });
         var url = this.addUrl + "name=" + input.city + "&countrycode=" + input.country;
         console.log(url);
+        //TODO: POST REQUESTS GET BLOCKED BY CORS...
         // return this.http.post(url, {}, options)
         //     .toPromise()
         //     .then(response => response.json())
         //     .catch(this.handleError);
+    };
+    CityService.prototype.deleteCity = function (input) {
+        var url = this.delUrl + input;
+        console.log(url);
+        //TODO: DELETE REQUEST ALSO MESSING UP....
+        // return this.http.delete(url) // ...using put request
+        //     .map((res:Response) => res.json()) // ...and calling .json() on the response to return data
+        //     .catch((error:any) => Observable.throw(error.json().error || 'Server error')); //...errors if any
     };
     CityService.prototype.handleError = function (error) {
         console.error('An error occurred', error); // for demo purposes only

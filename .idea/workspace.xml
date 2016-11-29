@@ -6,16 +6,10 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/city.service.js" afterPath="$PROJECT_DIR$/app/city.service.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/city.service.js.map" afterPath="$PROJECT_DIR$/app/city.service.js.map" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/city.service.ts" afterPath="$PROJECT_DIR$/app/city.service.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/comparison.component.js" afterPath="$PROJECT_DIR$/app/comparison.component.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/comparison.component.js.map" afterPath="$PROJECT_DIR$/app/comparison.component.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/comparison.component.ts" afterPath="$PROJECT_DIR$/app/comparison.component.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/form.component.html" afterPath="$PROJECT_DIR$/app/form.component.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/form.component.js" afterPath="$PROJECT_DIR$/app/form.component.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/form.component.js.map" afterPath="$PROJECT_DIR$/app/form.component.js.map" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/form.component.ts" afterPath="$PROJECT_DIR$/app/form.component.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/results.component.js" afterPath="$PROJECT_DIR$/app/results.component.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/results.component.js.map" afterPath="$PROJECT_DIR$/app/results.component.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/results.component.ts" afterPath="$PROJECT_DIR$/app/results.component.ts" />
     </list>
     <ignored path="angular-weather.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -37,14 +31,14 @@
     <favorites_list name="angular-weather" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.54514766">
+    <splitter split-orientation="horizontal" split-proportion="0.71252203">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file leaf-file-name="form.component.html" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/form.component.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="438">
-                  <caret line="54" column="43" selection-start-line="54" selection-start-column="43" selection-end-line="54" selection-end-column="43" />
+                <state relative-caret-position="375">
+                  <caret line="59" column="31" selection-start-line="59" selection-start-column="31" selection-end-line="59" selection-end-column="31" />
                   <folding />
                 </state>
               </provider>
@@ -53,8 +47,8 @@
           <file leaf-file-name="city.service.ts" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/app/city.service.ts">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="462">
-                  <caret line="43" column="50" selection-start-line="43" selection-start-column="50" selection-end-line="43" selection-end-column="50" />
+                <state relative-caret-position="0">
+                  <caret line="25" column="4" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="4" />
                   <folding>
                     <element signature="e#46#89#0" expanded="true" />
                   </folding>
@@ -69,8 +63,8 @@
           <file leaf-file-name="form.component.ts" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/app/form.component.ts">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="300">
-                  <caret line="196" column="48" selection-start-line="196" selection-start-column="48" selection-end-line="196" selection-end-column="48" />
+                <state relative-caret-position="357">
+                  <caret line="211" column="0" selection-start-line="211" selection-start-column="0" selection-end-line="211" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -122,8 +116,8 @@
         <option value="$PROJECT_DIR$/app/results.component.ts" />
         <option value="$PROJECT_DIR$/app/comparison.component.ts" />
         <option value="$PROJECT_DIR$/app/form.component.html" />
-        <option value="$PROJECT_DIR$/app/city.service.ts" />
         <option value="$PROJECT_DIR$/app/form.component.ts" />
+        <option value="$PROJECT_DIR$/app/city.service.ts" />
       </list>
     </option>
   </component>
@@ -341,12 +335,12 @@
       <workItem from="1480200427138" duration="6000" />
       <workItem from="1480226121134" duration="5195000" />
       <workItem from="1480263521196" duration="1442000" />
-      <workItem from="1480391101157" duration="7136000" />
+      <workItem from="1480391101157" duration="8800000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="157971000" />
+    <option name="totallyTimeSpent" value="159635000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -362,13 +356,13 @@
     <editor active="true" />
     <layout>
       <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2716593" sideWeight="0.79374" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.058776807" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.09928515" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934132" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28614917" sideWeight="0.1187801" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32876712" sideWeight="0.49678972" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24861" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16849315" sideWeight="0.8812199" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16849315" sideWeight="0.8812199" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -741,27 +735,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/form.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="438">
-          <caret line="54" column="43" selection-start-line="54" selection-start-column="43" selection-end-line="54" selection-end-column="43" />
+        <state relative-caret-position="375">
+          <caret line="59" column="31" selection-start-line="59" selection-start-column="31" selection-end-line="59" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/form.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="211" column="0" selection-start-line="211" selection-start-column="0" selection-end-line="211" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/city.service.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="43" column="50" selection-start-line="43" selection-start-column="50" selection-end-line="43" selection-end-column="50" />
+        <state relative-caret-position="0">
+          <caret line="25" column="4" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="4" />
           <folding>
             <element signature="e#46#89#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/form.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="196" column="48" selection-start-line="196" selection-start-column="48" selection-end-line="196" selection-end-column="48" />
-          <folding />
         </state>
       </provider>
     </entry>
