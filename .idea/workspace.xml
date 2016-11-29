@@ -3,13 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="d744b521-b423-40ad-b22c-345b2626da74" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/city.service.js" afterPath="$PROJECT_DIR$/app/city.service.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/city.service.js.map" afterPath="$PROJECT_DIR$/app/city.service.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/city.service.ts" afterPath="$PROJECT_DIR$/app/city.service.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/form.component.html" afterPath="$PROJECT_DIR$/app/form.component.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/form.component.js" afterPath="$PROJECT_DIR$/app/form.component.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/form.component.js.map" afterPath="$PROJECT_DIR$/app/form.component.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/form.component.ts" afterPath="$PROJECT_DIR$/app/form.component.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/comparison.component.js" afterPath="$PROJECT_DIR$/app/comparison.component.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/comparison.component.js.map" afterPath="$PROJECT_DIR$/app/comparison.component.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/comparison.component.ts" afterPath="$PROJECT_DIR$/app/comparison.component.ts" />
     </list>
     <ignored path="angular-weather.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -31,48 +27,20 @@
     <favorites_list name="angular-weather" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.71252203">
-      <split-first>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="form.component.html" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/form.component.html">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="375">
-                  <caret line="59" column="31" selection-start-line="59" selection-start-column="31" selection-end-line="59" selection-end-column="31" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="city.service.ts" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/app/city.service.ts">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="0">
-                  <caret line="25" column="4" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="4" />
-                  <folding>
-                    <element signature="e#46#89#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf>
-          <file leaf-file-name="form.component.ts" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/app/form.component.ts">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="357">
-                  <caret line="211" column="0" selection-start-line="211" selection-start-column="0" selection-end-line="211" selection-end-column="0" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf>
+      <file leaf-file-name="comparison.component.ts" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/comparison.component.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="434">
+              <caret line="82" column="31" selection-start-line="82" selection-start-column="31" selection-end-line="82" selection-end-column="31" />
+              <folding>
+                <element signature="e#89#145#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -114,10 +82,10 @@
         <option value="$PROJECT_DIR$/app/app.component.ts" />
         <option value="$PROJECT_DIR$/styles.css" />
         <option value="$PROJECT_DIR$/app/results.component.ts" />
-        <option value="$PROJECT_DIR$/app/comparison.component.ts" />
         <option value="$PROJECT_DIR$/app/form.component.html" />
         <option value="$PROJECT_DIR$/app/form.component.ts" />
         <option value="$PROJECT_DIR$/app/city.service.ts" />
+        <option value="$PROJECT_DIR$/app/comparison.component.ts" />
       </list>
     </option>
   </component>
@@ -335,12 +303,12 @@
       <workItem from="1480200427138" duration="6000" />
       <workItem from="1480226121134" duration="5195000" />
       <workItem from="1480263521196" duration="1442000" />
-      <workItem from="1480391101157" duration="8800000" />
+      <workItem from="1480391101157" duration="10837000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="159635000" />
+    <option name="totallyTimeSpent" value="161672000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -356,7 +324,7 @@
     <editor active="true" />
     <layout>
       <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2716593" sideWeight="0.79374" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.09928515" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1556791" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934132" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28614917" sideWeight="0.1187801" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32876712" sideWeight="0.49678972" order="8" side_tool="false" content_ui="tabs" />
@@ -723,21 +691,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/comparison.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1482">
-          <caret line="126" column="69" selection-start-line="126" selection-start-column="69" selection-end-line="126" selection-end-column="69" />
-          <folding>
-            <element signature="e#89#145#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/form.component.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
           <caret line="59" column="31" selection-start-line="59" selection-start-column="31" selection-end-line="59" selection-end-column="31" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/city.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+          <folding>
+            <element signature="e#46#89#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -749,12 +717,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/city.service.ts">
+    <entry file="file://$PROJECT_DIR$/app/comparison.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="25" column="4" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="4" />
+        <state relative-caret-position="434">
+          <caret line="82" column="31" selection-start-line="82" selection-start-column="31" selection-end-line="82" selection-end-column="31" />
           <folding>
-            <element signature="e#46#89#0" expanded="true" />
+            <element signature="e#89#145#0" expanded="true" />
           </folding>
         </state>
       </provider>

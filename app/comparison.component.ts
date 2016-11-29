@@ -27,6 +27,7 @@ export class ComparisonComponent implements OnInit{
     private seriesA: any;
     private seriesB: any;
     private chartData;
+    private view;
     private data;
     private chart;
     private static googleLoaded:any;
@@ -46,13 +47,13 @@ export class ComparisonComponent implements OnInit{
     ngOnInit() {
         if(!ComparisonComponent.googleLoaded) {
             ComparisonComponent.googleLoaded = true;
-            google.charts.load('current',  {packages: ['corechart', 'line']});
+            google.charts.load('current',  {packages: ['corechart', 'bar']});
         }
         google.charts.setOnLoadCallback(() => this.loadGraph());
     }
 
     createBarChart(element:any):any {
-        return new google.visualization.LineChart(element);
+        return new google.visualization.BarChart(element);
     }
 
     createDataTable(array:any[]):any {
@@ -65,10 +66,25 @@ export class ComparisonComponent implements OnInit{
         this.data = new google.visualization.DataTable();
 
 
-        this.data.addColumn('number', 'X');
-        this.data.addColumn('number', 'seriesA');
-       // this.data.addColumn('number', 'seriesB');
+        this.data.addColumn('string', 'Category');
+        this.data.addColumn('number', 'First');
+        this.data.addColumn('number', 'Second');
 
+        this.view = new google.visualization.DataView(this.data);
+
+
+        this.view.setColumns([0, 1,
+            { calc: "stringify",
+                sourceColumn: 1,
+                type: "string",
+                role: "annotation" },
+            2,
+            { calc: "stringify",
+                sourceColumn: 2,
+                type: "string",
+                role: "annotation" },
+
+            ]);
 
 
         this.options = {
@@ -80,6 +96,7 @@ export class ComparisonComponent implements OnInit{
             titleTextStyle: { color: 'white' },
 
             title: 'Cities and Weather',
+            bars: 'horizontal',
             chartArea: {width: '70%', height: '80%'},
             hAxis: {
                 gridLines: {count: 0},
@@ -88,7 +105,6 @@ export class ComparisonComponent implements OnInit{
             },
             vAxis: {
                 textStyle:{color: '#FFFFFF'},
-                title: 'Temperature'
             }
         };
 
@@ -113,8 +129,15 @@ export class ComparisonComponent implements OnInit{
         console.log(weather2);
 
 
+        this.data.addRows([
+            ['Temperature', weather1.main.temp, weather2.main.temp],
+            ['Pressure', weather1.main.pressure, weather2.main.pressure],
+            ['Humidity', weather1.main.humidity, weather2.main.humidity],
+            ['Wind', weather1.wind.speed, weather2.wind.speed]
+        ])
+
         this.chart = this.createBarChart(document.getElementById('my-chart'));
-        this.chart.draw(this.data, this.options);
+        this.chart.draw(this.view, this.options);
 
 
     }

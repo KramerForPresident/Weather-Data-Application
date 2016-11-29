@@ -27,27 +27,40 @@ var ComparisonComponent = (function () {
         var _this = this;
         if (!ComparisonComponent.googleLoaded) {
             ComparisonComponent.googleLoaded = true;
-            google.charts.load('current', { packages: ['corechart', 'line'] });
+            google.charts.load('current', { packages: ['corechart', 'bar'] });
         }
         google.charts.setOnLoadCallback(function () { return _this.loadGraph(); });
     };
     ComparisonComponent.prototype.createBarChart = function (element) {
-        return new google.visualization.LineChart(element);
+        return new google.visualization.BarChart(element);
     };
     ComparisonComponent.prototype.createDataTable = function (array) {
         return google.visualization.arrayToDataTable(array);
     };
     ComparisonComponent.prototype.loadGraph = function () {
         this.data = new google.visualization.DataTable();
-        this.data.addColumn('number', 'X');
-        this.data.addColumn('number', 'seriesA');
-        // this.data.addColumn('number', 'seriesB');
+        this.data.addColumn('string', 'Category');
+        this.data.addColumn('number', 'First');
+        this.data.addColumn('number', 'Second');
+        this.view = new google.visualization.DataView(this.data);
+        this.view.setColumns([0, 1,
+            { calc: "stringify",
+                sourceColumn: 1,
+                type: "string",
+                role: "annotation" },
+            2,
+            { calc: "stringify",
+                sourceColumn: 2,
+                type: "string",
+                role: "annotation" },
+        ]);
         this.options = {
             legend: 'none',
             backgroundColor: '#151517',
             legendTextStyle: { color: 'white' },
             titleTextStyle: { color: 'white' },
             title: 'Cities and Weather',
+            bars: 'horizontal',
             chartArea: { width: '70%', height: '80%' },
             hAxis: {
                 gridLines: { count: 0 },
@@ -56,7 +69,6 @@ var ComparisonComponent = (function () {
             },
             vAxis: {
                 textStyle: { color: '#FFFFFF' },
-                title: 'Temperature'
             }
         };
     };
@@ -69,8 +81,14 @@ var ComparisonComponent = (function () {
     ComparisonComponent.prototype.generateGraph = function (weather1, weather2) {
         console.log(weather1);
         console.log(weather2);
+        this.data.addRows([
+            ['Temperature', weather1.main.temp, weather2.main.temp],
+            ['Pressure', weather1.main.pressure, weather2.main.pressure],
+            ['Humidity', weather1.main.humidity, weather2.main.humidity],
+            ['Wind', weather1.wind.speed, weather2.wind.speed]
+        ]);
         this.chart = this.createBarChart(document.getElementById('my-chart'));
-        this.chart.draw(this.data, this.options);
+        this.chart.draw(this.view, this.options);
     };
     ComparisonComponent.prototype.myCallBack = function (input) {
         //this is where we do logical stuff with the returned objects
