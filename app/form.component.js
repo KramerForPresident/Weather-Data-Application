@@ -145,7 +145,7 @@ var FormComponent = (function () {
         var form = { id: 0, name: val1, countryCode: val2, active: "Y" };
         this.cityService.addCity(form);
         this.cities.push(form);
-        //this.cityService.addCity(input).then(dt => console.log(dt));
+        //this.cityService.addCity(form).then(dt => console.log(dt));
     };
     //remove city as active
     FormComponent.prototype.delCity = function (val) {

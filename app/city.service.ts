@@ -38,10 +38,10 @@ export class CityService{
         var url = this.addUrl + "name=" +  input.name + "&countrycode=" + input.countryCode;
         console.log(url);
 
-        // return this.http.post(url, {}, options)
-        //     .toPromise()
-        //     .then(response => response.json())
-        //     .catch(this.handleError);
+        return this.http.post(url, {}, options)
+            .map((res:Response) => res.json()) // ...and calling .json() on the response to return data
+            .catch((error:any) => Observable.throw(error.json().error || 'Server error')); //...errors if any
+
     }
 
     deleteCity(input): any{
@@ -49,9 +49,9 @@ export class CityService{
         var url = this.delUrl + input;
         console.log(url);
 
-        // return this.http.delete(url) // ...using put request
-        //     .map((res:Response) => res.json()) // ...and calling .json() on the response to return data
-        //     .catch((error:any) => Observable.throw(error.json().error || 'Server error')); //...errors if any
+        return this.http.delete(url) // ...using put request
+            .map((res:Response) => res.json()) // ...and calling .json() on the response to return data
+            .catch((error:any) => Observable.throw(error.json().error || 'Server error')); //...errors if any
     }
 
     private handleError(error: any): Promise<any> {

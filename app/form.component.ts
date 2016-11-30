@@ -179,7 +179,7 @@ export class FormComponent implements OnInit{
         this.cityService.addCity(form);
         this.cities.push(form);
 
-        //this.cityService.addCity(input).then(dt => console.log(dt));
+        //this.cityService.addCity(form).then(dt => console.log(dt));
     }
 
     //remove city as active

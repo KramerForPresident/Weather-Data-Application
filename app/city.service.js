@@ -13,6 +13,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var http_1 = require('@angular/http');
+var Observable_1 = require('rxjs/Observable');
 var http_2 = require('@angular/http');
 require('rxjs/add/operator/map');
 require('rxjs/add/operator/toPromise');
@@ -39,18 +40,17 @@ var CityService = (function () {
         //construct url
         var url = this.addUrl + "name=" + input.name + "&countrycode=" + input.countryCode;
         console.log(url);
-        // return this.http.post(url, {}, options)
-        //     .toPromise()
-        //     .then(response => response.json())
-        //     .catch(this.handleError);
+        return this.http.post(url, {}, options)
+            .map(function (res) { return res.json(); }) // ...and calling .json() on the response to return data
+            .catch(function (error) { return Observable_1.Observable.throw(error.json().error || 'Server error'); }); //...errors if any
     };
     CityService.prototype.deleteCity = function (input) {
         //construct url
         var url = this.delUrl + input;
         console.log(url);
-        // return this.http.delete(url) // ...using put request
-        //     .map((res:Response) => res.json()) // ...and calling .json() on the response to return data
-        //     .catch((error:any) => Observable.throw(error.json().error || 'Server error')); //...errors if any
+        return this.http.delete(url) // ...using put request
+            .map(function (res) { return res.json(); }) // ...and calling .json() on the response to return data
+            .catch(function (error) { return Observable_1.Observable.throw(error.json().error || 'Server error'); }); //...errors if any
     };
     CityService.prototype.handleError = function (error) {
         console.error('An error occurred', error); // for demo purposes only
