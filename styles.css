@@ -42,6 +42,7 @@ h2, h3{
 
 .result-title{
     padding: 12px;
+    border-bottom: 2px solid white;
 }
 
 
@@ -106,6 +107,44 @@ button{
     width: 100%;
     margin-bottom: 10px;
 }
+
+
+.eDate{
+    padding: 4px;
+    opacity: .5;
+}
+
+.weatherEntry{
+    border-bottom: 2px solid white;
+    padding: 10px;
+    font-size: 20px;
+    height: 190px;
+}
+
+
+.weatherTemp, .weatherMain, .weatherHumid, .weatherPressure, .weatherWind{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    /*border: 1px solid red;*/
+}
+
+.bigData{
+    margin-left: 14px;
+    float: left;
+    font-size: 55px;
+
+}
+.smallData{
+    margin-top: 14px;
+    margin-right: 14px;
+    font-weight: lighter;
+    float:right;
+
+}
+
+
+
+
 
 #manageButton button{
     width: 265px;
@@ -183,8 +222,6 @@ td{
     height: 100%;
     width: 100%;
 }
-
-
 
 
 

@@ -1,32 +1,23 @@
 <div *ngIf="!compMode" id = "results-box">
     <div class="result-title">
-        <h2>Results</h2>
+        <h2>{{currentCity}}</h2>
     </div>
 
 
-
-
-    <table id = "results-table">
-        <tr>
-            <div *ngIf="!isEmpty">
-                <th>Date</th>
-                <th>City</th>
-                <th>Weather</th>
-                <th>Temperature</th>
+    <div *ngFor="let val of entries">
+        <div class = "weatherEntry" *ngIf="val.city.name==currentCity">
+            <div class = "eDate">{{val.dateCreated}}</div>
+            <div class="bigData">
+                <div class ="weatherTemp">{{((val.main.temp)/100)*100}}° C</div>
+                <div class="weatherMain">{{val.weather.main}}</div>
             </div>
-        </tr>
-
-
-        <tr *ngFor="let val of entries">
-            <div *ngIf="val.city.name==currentCity">
-                <td>{{val.dateCreated}}</td>
-                <td>{{val.city.name}}</td>
-                <td>{{val.weather.description}}</td>
-                <td>{{val.main.temp}}° C</td>
-                <td>{{val.weather.main}}</td>
+            <div class ="smallData">
+                <div class="weatherHumid">{{val.main.humidity}}% Humidity</div>
+                <div class="weatherPressure">{{val.main.pressure}} hPa</div>
+                <div class="weatherWind">{{val.wind.speed}} m/s Wind</div>
             </div>
-        </tr>
-    </table>
+        </div>
+    </div>
 
 
 </div>
