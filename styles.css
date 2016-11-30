@@ -4,7 +4,7 @@
 h1 {
     color: white;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 200%;
+    font-size: 280%;
 
 }
 h2, h3{
@@ -35,14 +35,16 @@ h2, h3{
     margin-left: 550px;
     background-color: #151517;
     border: 2px solid white;
+    border-radius: 5px;
     height: 80%;
     overflow: scroll;
 
 }
 
 .result-title{
-    padding: 12px;
-    font-size: 22px;
+    font-weight: bold;
+    padding: 20px;
+    font-size: 30px;
     border-bottom: 2px solid white;
 }
 
@@ -57,6 +59,8 @@ select, input{
     height: 70px;
     border-radius: 5px;
     padding: 10px;
+    /*margin-top: 10px;*/
+    /*margin-bottom: 10px;*/
 
 }
 
@@ -100,7 +104,22 @@ button{
     background-color: #f66151;
 }
 
+.blueHead, .redHead{
+    font-size: 34px;
+    opacity: .8;
+    font-weight: bold;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
 
+.blueHead{
+    color: #264bc8;
+
+}
+
+.redHead{
+    color: #cb2700;
+}
 
 
 #results-box, #comparison-box{
@@ -144,10 +163,8 @@ button{
 }
 
 
-
-
-
 #manageButton button{
+    margin-top: 30px;
     width: 265px;
     background-color: #66ccff;
 }
@@ -167,6 +184,7 @@ button{
     list-style-type: none;
     margin-bottom: 3px;
     width: 260px;
+    border: none;
 }
 
 

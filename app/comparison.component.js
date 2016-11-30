@@ -45,14 +45,24 @@ var ComparisonComponent = (function () {
             legendTextStyle: { color: 'white' },
             titleTextStyle: { color: 'white' },
             bars: 'horizontal',
-            chartArea: { width: '70%', height: '80%' },
+            bar: { groupWidth: "95%" },
+            chartArea: { width: '65%', height: '80%' },
             hAxis: {
-                gridLines: { count: 0 },
+                textPosition: 'none',
+                gridlines: {
+                    color: 'transparent'
+                },
                 textStyle: { color: 'white' },
                 color: 'white'
             },
             vAxis: {
-                textStyle: { color: '#FFFFFF' },
+                gridlines: {
+                    color: 'transparent'
+                },
+                textStyle: {
+                    fontSize: 20,
+                    color: '#FFFFFF'
+                }
             }
         };
     };

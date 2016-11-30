@@ -18,9 +18,8 @@
 
 <div *ngIf="compMode" class="form-group">
 
-    <h3>Dataset 1</h3>
+    <h3 class="blueHead">Dataset A</h3>
 
-    <br/>
     <select class="form-control"  #compCity1 (change)="comparisonData(compCity1.value, compCity2.value, cDate1.value, cDate2.value)">
         <option *ngFor="let en of cities" [value]="en.name">{{en.name}}</option>
     </select>
@@ -28,7 +27,7 @@
     <input type="date" value= {{compDate1}} #cDate1 (change)="comparisonData(compCity1.value, compCity2.value, cDate1.value, cDate2.value)">
 
 
-    <h3>Dataset 2</h3>
+    <h3 class="redHead">Dataset B</h3>
     <select class="form-control"  #compCity2 (change)="comparisonData(compCity1.value, compCity2.value, cDate1.value, cDate2.value)">
         <option *ngFor="let en of cities" [value]="en.name">{{en.name}}</option>
     </select>

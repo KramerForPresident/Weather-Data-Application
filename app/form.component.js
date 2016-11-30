@@ -177,7 +177,7 @@ var FormComponent = (function () {
             this.cities.push(input[i]);
         }
         this.changeCity(this.cities[0].name);
-        this.comparisonData(this.cities[0].name, this.cities[0].name, this.compDate1, this.compDate2);
+        this.comparisonData(this.cities[0].name, this.cities[1].name, this.compDate1, this.compDate2);
     };
     __decorate([
         core_2.Output(), 

@@ -208,6 +208,7 @@ export class FormComponent implements OnInit{
         this.compCity2 = c2;
         this.compDate1 = d1;
         this.compDate2 = d2;
+
     }
 
 
@@ -221,7 +222,7 @@ export class FormComponent implements OnInit{
 
         }
         this.changeCity(this.cities[0].name);
-        this.comparisonData(this.cities[0].name, this.cities[0].name, this.compDate1, this.compDate2);
+        this.comparisonData(this.cities[0].name, this.cities[1].name, this.compDate1, this.compDate2);
 
     }
 
