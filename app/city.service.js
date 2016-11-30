@@ -33,7 +33,7 @@ var CityService = (function () {
     CityService.prototype.addCity = function (input) {
         var headers = new http_2.Headers({ 'Content-Type': 'application/json' });
         var options = new http_2.RequestOptions({ headers: headers });
-        var url = this.addUrl + "name=" + input.city + "&countrycode=" + input.country;
+        var url = this.addUrl + "name=" + input.name + "&countrycode=" + input.countryCode;
         console.log(url);
         //TODO: POST REQUESTS GET BLOCKED BY CORS...
         // return this.http.post(url, {}, options)

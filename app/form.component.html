@@ -46,20 +46,23 @@
     <button type="submit" id="okay" (click)="submitClicked()">OKAY</button>
 </div>
 
-<div class = "button">
+<div class = "button" id="manageButton">
     <button type = "submit" (click)="managedClicked()">MANAGE CITIES</button>
 </div>
 
-<div *ngIf="pollMode" class = "form-group">
-    <div>City: <input #newCityName /></div>
-    <div>Country Code: <input #newCode /></div>
+<div *ngIf="pollMode" class = "form-group" id="cityManager">
 
-    <button (click)="addCity(newCityName.value, newCode.value); newCityName.value='';newCode.value=''">Add City</button>
     <ul>
-       <li *ngFor="let en of cities">{{en.name}}
-           <div (click)="deleteClicked(en)">X</div>
-       </li>
+        <li *ngFor="let en of cities">{{en.name}}
+            <label (click)="deleteClicked(en)">X</label>
+        </li>
     </ul>
+
+    <input placeholder="City" #newCityName />
+    <input placeholder="Country Code"#newCode />
+
+    <button id = "addCit"(click)="addCity(newCityName.value, newCode.value); newCityName.value='';newCode.value=''">Add</button>
+
 
 </div>
 

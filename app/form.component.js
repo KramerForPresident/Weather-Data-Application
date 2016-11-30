@@ -140,16 +140,23 @@ var FormComponent = (function () {
         this.cityService.getCities().then(function (dt) { return _this.myCallBack(dt); });
     };
     FormComponent.prototype.addCity = function (val1, val2) {
-        var form = { city: val1, country: val2 };
+        var form = { id: 0, name: val1, countryCode: val2, active: "Y" };
         this.cityService.addCity(form);
+        this.cities.push(form);
         //this.cityService.addCity(input).then(dt => console.log(dt));
     };
     FormComponent.prototype.delCity = function (val) {
         this.cityService.deleteCity(val);
+        for (var i = 0; i < this.cities.length; i++) {
+            if (this.cities[i].id == val) {
+                this.cities.splice(i, 1);
+            }
+        }
         // this.cityService.deleteCity(val).subscribe(dt => console.log(dt));
     };
     FormComponent.prototype.myCallBack = function (input) {
         for (var i = 0; i < input.length; i++) {
+            console.log(input[i]);
             this.cities.push(input[i]);
         }
         this.changeCity(this.cities[0].name);

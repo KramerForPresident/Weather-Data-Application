@@ -40,7 +40,7 @@ export class CityService{
         let options = new RequestOptions({ headers: headers });
 
 
-        var url = this.addUrl + "name=" +  input.city + "&countrycode=" + input.country;
+        var url = this.addUrl + "name=" +  input.name + "&countrycode=" + input.countryCode;
         console.log(url);
 
 

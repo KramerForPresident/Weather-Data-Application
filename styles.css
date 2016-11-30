@@ -75,7 +75,7 @@ select, input{
     padding-right: 5%;
     padding-bottom: 3%;
     padding-top: 3%;
-    /*height: 100%;*/
+    height: 1000px;
     border-radius: 0px 0px 5px 5px;
 }
 
@@ -106,6 +106,55 @@ button{
     width: 100%;
     margin-bottom: 10px;
 }
+
+#manageButton button{
+    width: 265px;
+    background-color: #66ccff;
+}
+
+#cityManager{
+    margin-top: 0px;
+    background-color: #151517;
+    border: 2px solid white;
+    width: 260px;
+    border-radius: 2px 2px 5px 5px;
+
+
+}
+
+
+#cityManager input, #cityManager button{
+    list-style-type: none;
+    margin-bottom: 3px;
+    width: 260px;
+}
+
+
+
+
+#cityManager ul{
+    padding-left:0px;
+}
+
+
+#cityManager li{
+    font-size: 20px;
+    list-style-type: none;
+    margin: 7px;
+    padding: 12px;
+    color: white;
+    border: 1px solid white;
+}
+
+#cityManager label{
+    float: right;
+}
+
+#cityManager #addCit{
+    background-color: #2e5f80;
+}
+
+
 
 table{
     width: 100%;
