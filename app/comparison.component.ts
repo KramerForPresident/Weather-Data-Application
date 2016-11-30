@@ -63,29 +63,7 @@ export class ComparisonComponent implements OnInit{
     loadGraph(){
 
 
-        this.data = new google.visualization.DataTable();
-
-
-        this.data.addColumn('string', 'Category');
-        this.data.addColumn('number', 'First');
-        this.data.addColumn('number', 'Second');
-
-        this.view = new google.visualization.DataView(this.data);
-
-
-        this.view.setColumns([0, 1,
-            { calc: "stringify",
-                sourceColumn: 1,
-                type: "string",
-                role: "annotation" },
-            2,
-            { calc: "stringify",
-                sourceColumn: 2,
-                type: "string",
-                role: "annotation" },
-
-            ]);
-
+        console.log("google api callback invoked");
 
         this.options = {
 
@@ -95,7 +73,6 @@ export class ComparisonComponent implements OnInit{
             legendTextStyle: { color: 'white' },
             titleTextStyle: { color: 'white' },
 
-            title: 'Cities and Weather',
             bars: 'horizontal',
             chartArea: {width: '70%', height: '80%'},
             hAxis: {
@@ -107,6 +84,10 @@ export class ComparisonComponent implements OnInit{
                 textStyle:{color: '#FFFFFF'},
             }
         };
+
+
+
+
 
     }
 
@@ -127,7 +108,26 @@ export class ComparisonComponent implements OnInit{
 
         console.log(weather1);
         console.log(weather2);
+        this.data = new google.visualization.DataTable();
 
+        this.data.addColumn('string', 'Category');
+        this.data.addColumn('number', weather1.city.name);
+        this.data.addColumn('number', weather2.city.name);
+
+        this.view = new google.visualization.DataView(this.data);
+
+        this.view.setColumns([0, 1,
+            { calc: "stringify",
+                sourceColumn: 1,
+                type: "string",
+                role: "annotation" },
+            2,
+            { calc: "stringify",
+                sourceColumn: 2,
+                type: "string",
+                role: "annotation" },
+
+        ]);
 
         this.data.addRows([
             ['Temperature', weather1.main.temp, weather2.main.temp],
@@ -135,6 +135,8 @@ export class ComparisonComponent implements OnInit{
             ['Humidity', weather1.main.humidity, weather2.main.humidity],
             ['Wind', weather1.wind.speed, weather2.wind.speed]
         ])
+
+
 
         this.chart = this.createBarChart(document.getElementById('my-chart'));
         this.chart.draw(this.view, this.options);
