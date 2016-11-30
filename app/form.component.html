@@ -3,11 +3,6 @@
     <button type="submit" id="comp" (click)="compClicked()">COMPARE</button>
 </div>
 
-
-
-
-
-
 <div *ngIf="!compMode" class="form-group">
     <h3>Select City:</h3>
     <select class="form-control" id="city" #cvar (change)="changeCity(cvar.value)">

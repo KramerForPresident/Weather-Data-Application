@@ -27,7 +27,7 @@ h2, h3{
 
 .left-container{
     float: left;
-    width: 550px;
+    width: 600px;
     height: 90%;
 }
 
@@ -181,9 +181,9 @@ button{
     font-size: 20px;
     list-style-type: none;
     margin: 7px;
-    padding: 12px;
+    padding: 10px;
     color: white;
-    border: 1px solid white;
+    /*border: 1px solid white;*/
 }
 
 #cityManager label{

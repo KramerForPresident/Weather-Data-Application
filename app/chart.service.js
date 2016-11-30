@@ -13,10 +13,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var http_1 = require('@angular/http');
+var Observable_1 = require('rxjs/Observable');
 require('rxjs/add/operator/map');
 require('rxjs/add/operator/toPromise');
 require('rxjs/add/operator/catch');
-var Observable_1 = require('rxjs/Observable');
 require('rxjs/add/operator/map');
 require('rxjs/add/operator/toPromise');
 require('rxjs/add/operator/catch');
@@ -27,12 +27,14 @@ var ChartService = (function () {
         this.baseUrl = "http://sample-env-1.ds75epucp6.us-east-1.elasticbeanstalk.com/Weatherfile/";
     }
     ChartService.prototype.getChartData = function (data) {
+        //extract parameter data from object
         var sDate1 = data[0].start;
         var eDate1 = data[0].end;
         var sDate2 = data[1].start;
         var eDate2 = data[1].end;
         var url1;
         var url2;
+        //technically there's 2 different URL requests. just figure out which URL to construct
         if (sDate1 == eDate1) {
             url1 = this.baseUrl + "getByDate?date=" + sDate1;
         }
@@ -47,6 +49,8 @@ var ChartService = (function () {
         }
         console.log(url1);
         console.log(url2);
+        //call a fork join: simultaneously calls multiple HTTP requests at once
+        //after this, an array of data is returned by the multiple requests
         return Observable_1.Observable.forkJoin(this.http.get(url1).map(function (res) { return res.json(); }), this.http.get(url2).map(function (res) { return res.json(); }));
     };
     ChartService = __decorate([

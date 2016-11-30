@@ -18,26 +18,32 @@ var city_service_1 = require("./city.service");
 var FormComponent = (function () {
     function FormComponent(cityService) {
         this.cityService = cityService;
-        //TODO: get these from a service... via polled cities
-        // cities = ['Thunder Bay', 'Toronto', 'Barrie', "Phoenix"];
+        //cities array starts out empty, until we initialize component and call "get"
         this.cities = [];
-        //okay very bad code starting in 3-2-1 GO
+        //initialize default dates input boxes
         this.startDate = "2016-11-28";
         this.endDate = "2016-11-28";
+        //comp dates reflect date parameters in comp mode
         this.compDate1 = "2016-11-28";
         this.compDate2 = "2016-11-28";
-        this.submitted = false;
         this.pollMode = false;
         this.compMode = false;
         this.isValid = true;
+        this.submitted = false;
+        //output event objects that get emitted to parent component
         this.onSubmitted = new core_3.EventEmitter();
         this.onCompared = new core_3.EventEmitter();
         this.onCityChange = new core_3.EventEmitter();
         this.onCompClicked = new core_3.EventEmitter();
     }
+    //when component is initialized, retrieve the cities
     FormComponent.prototype.ngOnInit = function () {
         this.retrievePolledCities();
     };
+    //====================================================================================
+    //HTML FORM VIEW COMPONENTS
+    //====================================================================================
+    //first date parameter was changed
     FormComponent.prototype.changeStart = function (val) {
         var sD = Date.parse(val);
         var eD = Date.parse(this.endDate);
@@ -51,6 +57,7 @@ var FormComponent = (function () {
         }
         // this.showStatus();
     };
+    //second date parameter changed
     FormComponent.prototype.changeEnd = function (val) {
         var sD = Date.parse(this.startDate);
         var eD = Date.parse(val);
@@ -64,6 +71,7 @@ var FormComponent = (function () {
         }
         //  this.showStatus();
     };
+    //compare button click handler
     FormComponent.prototype.compClicked = function () {
         if (this.compMode == false) {
             this.compMode = true;
@@ -74,9 +82,11 @@ var FormComponent = (function () {
         this.onCompClicked.emit(this.compMode);
         //console.log("Emitting " + this.compMode);
     };
+    //submit button click handler
     FormComponent.prototype.submitClicked = function () {
         this.submitted = true;
         if (this.compMode != true) {
+            //submit in regular mode
             if (this.isValid == true) {
                 this.getResults({ city: this.selectedCity, start: this.startDate, end: this.endDate });
             }
@@ -85,14 +95,14 @@ var FormComponent = (function () {
             }
         }
         else {
+            //submit in compare mode
             var formArray = [];
-            //THE FOLLOWING CODE IS REALLY JANKY
-            //I'M SORRY I'M SORRY I'M SORRYYY
             formArray.push({ city: this.compCity1, start: this.compDate1, end: this.compDate1 });
             formArray.push({ city: this.compCity2, start: this.compDate2, end: this.compDate2 });
             this.getComparison(formArray);
         }
     };
+    //manage city button click handler
     FormComponent.prototype.managedClicked = function () {
         if (this.pollMode == false) {
             this.pollMode = true;
@@ -101,6 +111,7 @@ var FormComponent = (function () {
             this.pollMode = false;
         }
     };
+    //delete was clicked besides whatever city
     FormComponent.prototype.deleteClicked = function (input) {
         this.delCity(input.id);
     };
@@ -111,40 +122,32 @@ var FormComponent = (function () {
             console.log("Start[" + i + "]: " + this.startDate[i] + " End[" + i + "]: " + this.endDate[i] + "\n");
         }
     };
+    //when city is changed in dropdown menu
     FormComponent.prototype.changeCity = function (val) {
         this.selectedCity = val;
         this.onCityChange.emit(this.selectedCity);
     };
-    FormComponent.prototype.comparisonData = function (c1, c2, d1, d2) {
-        this.compCity1 = c1;
-        this.compCity2 = c2;
-        this.compDate1 = d1;
-        this.compDate2 = d2;
-        //
-        // console.log(this.compCity1);
-        // console.log(this.compDate1);
-        // console.log(this.compCity2);
-        // console.log(this.compDate2);
-    };
-    //these two functions might be redundant. whatever.
+    //====================================================================================
+    //DATA RETRIEVAL FUNCTIONS
+    //====================================================================================
+    //emits submit event to parent app component
     FormComponent.prototype.getResults = function (data) {
         //console.log(data);
         this.onSubmitted.emit(data);
     };
+    //emits compareclicked event to parent app component
     FormComponent.prototype.getComparison = function (data) {
         //console.log(data);
         this.onCompared.emit(data);
     };
-    FormComponent.prototype.retrievePolledCities = function () {
-        var _this = this;
-        this.cityService.getCities().then(function (dt) { return _this.myCallBack(dt); });
-    };
+    //add city to active ones
     FormComponent.prototype.addCity = function (val1, val2) {
         var form = { id: 0, name: val1, countryCode: val2, active: "Y" };
         this.cityService.addCity(form);
         this.cities.push(form);
         //this.cityService.addCity(input).then(dt => console.log(dt));
     };
+    //remove city as active
     FormComponent.prototype.delCity = function (val) {
         this.cityService.deleteCity(val);
         for (var i = 0; i < this.cities.length; i++) {
@@ -154,6 +157,20 @@ var FormComponent = (function () {
         }
         // this.cityService.deleteCity(val).subscribe(dt => console.log(dt));
     };
+    //calls city service to get all active cities
+    FormComponent.prototype.retrievePolledCities = function () {
+        var _this = this;
+        this.cityService.getCities().then(function (dt) { return _this.myCallBack(dt); });
+    };
+    //sets the comparison data
+    FormComponent.prototype.comparisonData = function (c1, c2, d1, d2) {
+        this.compCity1 = c1;
+        this.compCity2 = c2;
+        this.compDate1 = d1;
+        this.compDate2 = d2;
+    };
+    //callback function for retrievePolledCities()
+    //adds all retrieved cities to local array
     FormComponent.prototype.myCallBack = function (input) {
         for (var i = 0; i < input.length; i++) {
             console.log(input[i]);

@@ -5,8 +5,6 @@
 import { Component } from '@angular/core';
 import { Output } from '@angular/core';
 import {EventEmitter} from '@angular/core';
-import { Entry} from './entry';
-import {ResultsComponent} from "./results.component"
 import { OnInit } from '@angular/core';
 
 import Result = jasmine.Result;
@@ -21,44 +19,46 @@ import {CityService} from "./city.service";
 
 export class FormComponent implements OnInit{
 
-    //TODO: get these from a service... via polled cities
-   // cities = ['Thunder Bay', 'Toronto', 'Barrie', "Phoenix"];
+    //cities array starts out empty, until we initialize component and call "get"
     cities = [];
 
 
-    //okay very bad code starting in 3-2-1 GO
+    //initialize default dates input boxes
     startDate = "2016-11-28";
     endDate = "2016-11-28";
 
+    //comp dates reflect date parameters in comp mode
     compDate1 = "2016-11-28";
-    compDate2 = "2016-11-28"
+    compDate2 = "2016-11-28";
 
+    pollMode = false;
+    compMode = false;
+    isValid = true;
     submitted = false;
-    selectedCity;
 
+    selectedCity;
     compCity1;
     compCity2;
 
-    pollMode = false;
-
-
-    compMode = false;
-    isValid = true;
-
+    //output event objects that get emitted to parent component
     @Output() onSubmitted = new EventEmitter();
     @Output() onCompared = new EventEmitter();
     @Output() onCityChange = new EventEmitter();
     @Output() onCompClicked = new EventEmitter();
 
 
-
     constructor(private cityService: CityService){}
 
+    //when component is initialized, retrieve the cities
     ngOnInit(): void {
         this.retrievePolledCities();
     }
 
+    //====================================================================================
+    //HTML FORM VIEW COMPONENTS
+    //====================================================================================
 
+    //first date parameter was changed
     changeStart(val){
         var sD = Date.parse(val);
         var eD = Date.parse(this.endDate);
@@ -74,6 +74,7 @@ export class FormComponent implements OnInit{
        // this.showStatus();
     }
 
+    //second date parameter changed
     changeEnd(val){
         var sD = Date.parse(this.startDate);
         var eD = Date.parse(val);
@@ -89,7 +90,7 @@ export class FormComponent implements OnInit{
       //  this.showStatus();
     }
 
-
+    //compare button click handler
     compClicked(){
         if (this.compMode == false){
             this.compMode = true;
@@ -101,10 +102,12 @@ export class FormComponent implements OnInit{
         //console.log("Emitting " + this.compMode);
     }
 
+    //submit button click handler
     submitClicked() {
         this.submitted = true;
 
         if(this.compMode != true) {
+            //submit in regular mode
             if (this.isValid == true) {
                 this.getResults({city: this.selectedCity, start: this.startDate, end: this.endDate});
             }
@@ -113,22 +116,17 @@ export class FormComponent implements OnInit{
             }
         }
         else{
+            //submit in compare mode
             var formArray = [];
 
-            //THE FOLLOWING CODE IS REALLY JANKY
-            //I'M SORRY I'M SORRY I'M SORRYYY
             formArray.push({city: this.compCity1, start: this.compDate1, end: this.compDate1});
             formArray.push({city: this.compCity2, start: this.compDate2, end: this.compDate2});
-
             this.getComparison(formArray);
-
-
         }
     }
 
-
+    //manage city button click handler
     managedClicked(){
-
         if(this.pollMode == false){
             this.pollMode = true;
         }
@@ -137,13 +135,10 @@ export class FormComponent implements OnInit{
         }
     }
 
+    //delete was clicked besides whatever city
     deleteClicked(input){
         this.delCity(input.id);
-
     }
-
-
-
 
     //mostly for debugging
     showStatus(){
@@ -153,8 +148,7 @@ export class FormComponent implements OnInit{
             console.log("Start[" + i + "]: " + this.startDate[i] + " End[" + i + "]: " + this.endDate[i] + "\n");
         }
     }
-
-
+    //when city is changed in dropdown menu
     changeCity(val){
 
         this.selectedCity = val;
@@ -162,52 +156,33 @@ export class FormComponent implements OnInit{
     }
 
 
+    //====================================================================================
+    //DATA RETRIEVAL FUNCTIONS
+    //====================================================================================
 
 
-
-    comparisonData(c1, c2, d1, d2){
-        this.compCity1 = c1;
-        this.compCity2 = c2;
-        this.compDate1 = d1;
-        this.compDate2 = d2;
-        //
-        // console.log(this.compCity1);
-        // console.log(this.compDate1);
-        // console.log(this.compCity2);
-        // console.log(this.compDate2);
-    }
-
-
-
-
-
-    //these two functions might be redundant. whatever.
+    //emits submit event to parent app component
     getResults(data){
         //console.log(data);
         this.onSubmitted.emit(data);
     }
 
+    //emits compareclicked event to parent app component
     getComparison(data){
         //console.log(data);
         this.onCompared.emit(data)
     }
 
-    retrievePolledCities(){
-        this.cityService.getCities().then(dt => this.myCallBack(dt));
-
-    }
-
-
+    //add city to active ones
     addCity(val1, val2){
-
-
         var form = {id: 0, name: val1, countryCode: val2, active: "Y"};
-
         this.cityService.addCity(form);
         this.cities.push(form);
+
         //this.cityService.addCity(input).then(dt => console.log(dt));
     }
 
+    //remove city as active
     delCity(val){
         this.cityService.deleteCity(val);
         for(var i = 0; i < this.cities.length; i++){
@@ -220,9 +195,26 @@ export class FormComponent implements OnInit{
     }
 
 
+    //calls city service to get all active cities
+    retrievePolledCities(){
+        this.cityService.getCities().then(dt => this.myCallBack(dt));
 
+    }
+
+
+    //sets the comparison data
+    comparisonData(c1, c2, d1, d2){
+        this.compCity1 = c1;
+        this.compCity2 = c2;
+        this.compDate1 = d1;
+        this.compDate2 = d2;
+    }
+
+
+
+    //callback function for retrievePolledCities()
+    //adds all retrieved cities to local array
     private myCallBack(input){
-
         for(var i = 0; i < input.length; i++){
             console.log(input[i]);
             this.cities.push(input[i]);

@@ -19,22 +19,25 @@ var ResultsComponent = (function () {
         this.a = {};
         this.isEmpty = true;
     }
+    //gets called from parent app component
+    //passes form parameters to entryservice
     ResultsComponent.prototype.getEntries = function (input) {
         var _this = this;
         this.entryService.getEntries(input).then(function (dt) { return _this.myCallBack(dt); });
         this.isEmpty = false;
     };
+    //sets selected city to passed value
     ResultsComponent.prototype.changeCity = function (input) {
         this.currentCity = input;
     };
+    //prints out all weather objects. debugging mostly
     ResultsComponent.prototype.printWeatherFiles = function (array) {
         for (var i = 0; i < array.length; i++) {
             console.log(array[i]);
         }
     };
+    //callback for when the http get request is made
     ResultsComponent.prototype.myCallBack = function (input) {
-        //this is where we do logical stuff with the returned objects
-        //console.log("single input callback");
         this.entries = input;
         this.printWeatherFiles(this.entries);
     };

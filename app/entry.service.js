@@ -19,12 +19,15 @@ require('rxjs/add/operator/catch');
 var EntryService = (function () {
     function EntryService(http) {
         this.http = http;
+        //base url string
         this.baseUrl = "http://sample-env-1.ds75epucp6.us-east-1.elasticbeanstalk.com/Weatherfile/";
     }
+    //function to get weather files based on parameter date range
     EntryService.prototype.getEntries = function (data) {
         var sDate = data.start;
         var eDate = data.end;
         var url;
+        //two different urls can be called, depending on date range. here we decide which one
         if (sDate == eDate) {
             url = this.baseUrl + "getByDate?date=" + sDate;
         }
@@ -32,11 +35,13 @@ var EntryService = (function () {
             url = this.baseUrl + "getBetween?date1=" + sDate + "&date2=" + eDate;
         }
         console.log(url);
+        //return http request in promise
         return this.http.get(url)
             .toPromise()
             .then(function (response) { return response.json(); })
             .catch(this.handleError);
     };
+    //error handler
     EntryService.prototype.handleError = function (error) {
         console.error('An error occurred', error); // for demo purposes only
         return Promise.reject(error.message || error);

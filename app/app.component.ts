@@ -4,17 +4,10 @@
 
 import {Component} from '@angular/core'
 import {Entry} from './entry';
-import {EntryDetailComponent} from './entry-detail.component';
 import {EntryService} from './entry.service';
-import {OnInit} from '@angular/core';
-import {FormComponent} from './form.component';
 import {CityService} from "./city.service";
-
 import {ChartService} from "./chart.service";
-
 import 'rxjs/add/operator/map';
-
-
 
 @Component({
     selector: 'my-app',

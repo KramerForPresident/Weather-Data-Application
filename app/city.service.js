@@ -20,11 +20,14 @@ require('rxjs/add/operator/catch');
 var CityService = (function () {
     function CityService(http) {
         this.http = http;
+        //strings of base urls
         this.getUrl = "http://sample-env-1.ds75epucp6.us-east-1.elasticbeanstalk.com/City/polled";
         this.addUrl = "http://sample-env-1.ds75epucp6.us-east-1.elasticbeanstalk.com/City/add?";
         this.delUrl = "http://sample-env-1.ds75epucp6.us-east-1.elasticbeanstalk.com/City/";
     }
+    //get polled cities
     CityService.prototype.getCities = function () {
+        //returns http promise
         return this.http.get(this.getUrl)
             .toPromise()
             .then(function (response) { return response.json(); })
@@ -33,18 +36,18 @@ var CityService = (function () {
     CityService.prototype.addCity = function (input) {
         var headers = new http_2.Headers({ 'Content-Type': 'application/json' });
         var options = new http_2.RequestOptions({ headers: headers });
+        //construct url
         var url = this.addUrl + "name=" + input.name + "&countrycode=" + input.countryCode;
         console.log(url);
-        //TODO: POST REQUESTS GET BLOCKED BY CORS...
         // return this.http.post(url, {}, options)
         //     .toPromise()
         //     .then(response => response.json())
         //     .catch(this.handleError);
     };
     CityService.prototype.deleteCity = function (input) {
+        //construct url
         var url = this.delUrl + input;
         console.log(url);
-        //TODO: DELETE REQUEST ALSO MESSING UP....
         // return this.http.delete(url) // ...using put request
         //     .map((res:Response) => res.json()) // ...and calling .json() on the response to return data
         //     .catch((error:any) => Observable.throw(error.json().error || 'Server error')); //...errors if any

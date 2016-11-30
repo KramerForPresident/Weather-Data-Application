@@ -3,12 +3,7 @@
  */
 
 import { Component, Input} from '@angular/core';
-import {Entry} from './entry';
-
 import {EntryService} from './entry.service';
-
-import {OnInit} from '@angular/core';
-
 
 @Component({
     moduleId: module.id,
@@ -28,33 +23,30 @@ export class ResultsComponent{
     constructor(private entryService: EntryService){
     }
 
+    //gets called from parent app component
+    //passes form parameters to entryservice
     getEntries(input): void{
         this.entryService.getEntries(input).then(dt => this.myCallBack(dt));
         this.isEmpty = false;
     }
 
 
+    //sets selected city to passed value
     changeCity(input){
         this.currentCity = input;
     }
 
 
+    //prints out all weather objects. debugging mostly
     printWeatherFiles(array){
         for(var i = 0; i < array.length; i++){
             console.log(array[i]);
         }
     }
 
+    //callback for when the http get request is made
     private myCallBack(input){
-
-        //this is where we do logical stuff with the returned objects
-
-        //console.log("single input callback");
         this.entries = input;
         this.printWeatherFiles(this.entries);
-
     }
-
-
-
 }

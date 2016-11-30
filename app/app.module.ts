@@ -10,14 +10,13 @@ import {HttpModule, JsonpModule} from '@angular/http';
 
 import {FormComponent} from './form.component';
 import { AppComponent } from './app.component';
-import {EntryDetailComponent} from "./entry-detail.component";
 import {ResultsComponent} from "./results.component";
 import {ComparisonComponent} from "./comparison.component";
 
 
 @NgModule({
     imports: [BrowserModule, FormsModule, HttpModule, JsonpModule],
-    declarations: [AppComponent, EntryDetailComponent, FormComponent, ResultsComponent, ComparisonComponent],
+    declarations: [AppComponent, FormComponent, ResultsComponent, ComparisonComponent],
     bootstrap: [AppComponent]
 })
 

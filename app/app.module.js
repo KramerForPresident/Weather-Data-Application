@@ -17,7 +17,6 @@ var forms_1 = require('@angular/forms');
 var http_1 = require('@angular/http');
 var form_component_1 = require('./form.component');
 var app_component_1 = require('./app.component');
-var entry_detail_component_1 = require("./entry-detail.component");
 var results_component_1 = require("./results.component");
 var comparison_component_1 = require("./comparison.component");
 var AppModule = (function () {
@@ -26,7 +25,7 @@ var AppModule = (function () {
     AppModule = __decorate([
         core_1.NgModule({
             imports: [platform_browser_1.BrowserModule, forms_1.FormsModule, http_1.HttpModule, http_1.JsonpModule],
-            declarations: [app_component_1.AppComponent, entry_detail_component_1.EntryDetailComponent, form_component_1.FormComponent, results_component_1.ResultsComponent, comparison_component_1.ComparisonComponent],
+            declarations: [app_component_1.AppComponent, form_component_1.FormComponent, results_component_1.ResultsComponent, comparison_component_1.ComparisonComponent],
             bootstrap: [app_component_1.AppComponent]
         }), 
         __metadata('design:paramtypes', [])
